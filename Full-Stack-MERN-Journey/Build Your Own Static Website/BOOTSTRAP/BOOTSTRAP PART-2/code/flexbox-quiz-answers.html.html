@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Quiz Answers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .question {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+        .answer {
+            background-color: #e7f3ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+        }
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body class="container mt-5">
+    
+    <h1 class="text-center mb-4">Flexbox Quiz Answers</h1>
+    
+    <div class="quiz-container">
+        
+        <!-- Question 1 -->
+        <div class="question">
+            <h5>1. Which Bootstrap class name defines a Flexbox Container?</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> d-flex
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> The class <code>d-flex</code> creates a flex container in Bootstrap.</p>
+            </div>
+        </div>
+        
+        <!-- Question 2 -->
+        <div class="question">
+            <h5>2. What are the direct HTML elements in the Flexbox Container called?</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> flex items
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> Direct children of a flex container are called flex items.</p>
+            </div>
+        </div>
+        
+        <!-- Question 3 -->
+        <div class="question">
+            <h5>3. Identify the flex items in this code:</h5>
+            <div class="code-block">
+&lt;div class="d-flex"&gt;
+    &lt;div&gt;
+        &lt;h1&gt;Tourism&lt;/h1&gt;
+        &lt;p&gt;Plan your trip.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+            </div>
+            <div class="answer correct">
+                <strong>Answer:</strong> div
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> Only the <code>&lt;div&gt;</code> is a direct child (flex item). <code>&lt;h1&gt;</code> and <code>&lt;p&gt;</code> are not direct children.</p>
+            </div>
+        </div>
+        
+        <!-- Question 4 -->
+        <div class="question">
+            <h5>4. Which Bootstrap class moves flex items horizontally?</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> flex-row
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> <code>flex-row</code> arranges items horizontally (default direction).</p>
+            </div>
+        </div>
+        
+        <!-- Question 5 -->
+        <div class="question">
+            <h5>5. Which Bootstrap class moves flex items vertically?</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> flex-column
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> <code>flex-column</code> arranges items vertically from top to bottom.</p>
+            </div>
+        </div>
+        
+        <!-- Question 6 -->
+        <div class="question">
+            <h5>6. The Bootstrap class name flex-row is the default Flex Direction for the Flexbox Container.</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> True
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> When you use <code>d-flex</code> without specifying direction, <code>flex-row</code> is applied by default.</p>
+            </div>
+        </div>
+        
+        <!-- Question 7 -->
+        <div class="question">
+            <h5>7. Which Bootstrap class aligns flex items at the start?</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> justify-content-start
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> <code>justify-content-start</code> aligns items to the start of the container.</p>
+            </div>
+        </div>
+        
+        <!-- Question 8 -->
+        <div class="question">
+            <h5>8. Which Bootstrap class aligns flex items at the center?</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> justify-content-center
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> <code>justify-content-center</code> centers items along the main axis.</p>
+            </div>
+        </div>
+        
+        <!-- Question 9 -->
+        <div class="question">
+            <h5>9. Which Bootstrap class provides equal space between flex items?</h5>
+            <div class="answer correct">
+                <strong>Answer:</strong> justify-content-between
+                <p class="mb-0 mt-2"><strong>Explanation:</strong> <code>justify-content-between</code> distributes items with equal space between them.</p>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Quick Reference Card -->
+    <div class="card mt-5">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Flexbox Quick Reference</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Container Classes:</h5>
+                    <ul>
+                        <li><code>d-flex</code> - Creates flex container</li>
+                        <li><code>flex-row</code> - Horizontal layout (default)</li>
+                        <li><code>flex-column</code> - Vertical layout</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Alignment Classes:</h5>
+                    <ul>
+                        <li><code>justify-content-start</code> - Align to start</li>
+                        <li><code>justify-content-center</code> - Center alignment</li>
+                        <li><code>justify-content-end</code> - Align to end</li>
+                        <li><code>justify-content-between</code> - Equal space between</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-3">
+                <strong>Key Concept:</strong> Flex items are only DIRECT children of the container with <code>d-flex</code>.
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
