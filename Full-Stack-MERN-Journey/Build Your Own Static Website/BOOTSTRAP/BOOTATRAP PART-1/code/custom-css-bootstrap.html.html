@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom CSS with Bootstrap</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS classes - Safe to use */
+        .custom-button {
+            border-radius: 20px;
+            padding: 12px 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .custom-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .custom-card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        /* DON'T override Bootstrap classes directly */
+        /* .btn {  ← Avoid this!
+            background-color: blue;
+        } */
+    </style>
+</head>
+<body class="container mt-5">
+    
+    <h1 class="text-center mb-5">Custom CSS with Bootstrap</h1>
+    
+    <!-- Using custom classes with Bootstrap -->
+    <div class="text-center">
+        <button class="btn btn-primary custom-button m-2">
+            Custom Primary Button
+        </button>
+        
+        <button class="btn btn-success custom-button m-2">
+            Custom Success Button
+        </button>
+        
+        <button class="btn btn-outline-danger custom-button m-2">
+            Custom Outline Button
+        </button>
+    </div>
+    
+    <!-- Card Example -->
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card custom-card">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary">Package 1</h5>
+                    <p class="card-text">Basic tour package with essential amenities.</p>
+                    <button class="btn btn-primary custom-button">Book Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card custom-card">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-success">Package 2</h5>
+                    <p class="card-text">Premium package with luxury accommodations.</p>
+                    <button class="btn btn-success custom-button">Book Now</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card custom-card">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-warning">Package 3</h5>
+                    <p class="card-text">Adventure package for thrill seekers.</p>
+                    <button class="btn btn-warning custom-button">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
