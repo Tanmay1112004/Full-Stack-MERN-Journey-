@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Places - Complete Example</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        /* Step 1: Basic Container & Heading */
+        .favourite-places-bg-container {
+            background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .favourite-places-heading {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Step 2: Card Container */
+        .favourite-place-card-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .favourite-place-card-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .favourite-place-card-heading {
+            color: #0f0e46;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .favourite-place-card-description {
+            color: #6c6b70;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Step 3: Image Styling */
+        .favourite-place-card-image {
+            width: 120px;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 3px solid #f1f1f1;
+        }
+        
+        /* Step 4: Margin between cards */
+        .favourite-place-card-container + .favourite-place-card-container {
+            margin-top: 20px;
+        }
+        
+        /* Additional Styling */
+        .step-indicator {
+            background-color: #25b1cc;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .instruction-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #25b1cc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .code-snippet {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Favourite Places - Step by Step Guide</h1>
+        
+        <!-- Instructions -->
+        <div class="instruction-box">
+            <div><span class="step-indicator">1</span> Create container and heading</div>
+        </div>
+        <div class="instruction-box">
+            <div><span class="step-indicator">2</span> Add card with text content</div>
+        </div>
+        <div class="instruction-box">
+            <div><span class="step-indicator">3</span> Add image to card</div>
+        </div>
+        <div class="instruction-box">
+            <div><span class="step-indicator">4</span> Use flexbox for side-by-side layout</div>
+        </div>
+        <div class="instruction-box">
+            <div><span class="step-indicator">5</span> Add margin between multiple cards</div>
+        </div>
+    </div>
+    
+    <!-- The Actual Implementation -->
+    <div class="favourite-places-bg-container">
+        <h1 class="favourite-places-heading">Favourite Places</h1>
+        
+        <!-- Card 1: Taj Mahal -->
+        <div class="favourite-place-card-container d-flex flex-row justify-content-between align-items-center">
+            <div class="flex-grow-1 mr-3">
+                <h1 class="favourite-place-card-heading">Taj Mahal</h1>
+                <p class="favourite-place-card-description">
+                    The Taj Mahal is an ivory-white marble mausoleum on the right bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal.
+                </p>
+            </div>
+            <img
+                src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                class="favourite-place-card-image"
+                alt="Taj Mahal"
+            />
+        </div>
+        
+        <!-- Card 2: Golden Temple -->
+        <div class="favourite-place-card-container d-flex flex-row justify-content-between align-items-center">
+            <div class="flex-grow-1 mr-3">
+                <h1 class="favourite-place-card-heading">Golden Temple</h1>
+                <p class="favourite-place-card-description">
+                    The Golden Temple, also known as Harmandir Sahib, is a gurdwara located in the city of Amritsar, Punjab, India. It is the preeminent spiritual site of Sikhism. The temple is built around a man-made pool that was completed by the fourth Sikh Guru, Guru Ram Das, in 1577.
+                </p>
+            </div>
+            <img
+                src="https://images.unsplash.com/photo-1585506936724-fa0c19d2739a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                class="favourite-place-card-image"
+                alt="Golden Temple"
+            />
+        </div>
+        
+        <!-- Card 3: Mysore Palace -->
+        <div class="favourite-place-card-container d-flex flex-row justify-content-between align-items-center">
+            <div class="flex-grow-1 mr-3">
+                <h1 class="favourite-place-card-heading">Mysore Palace</h1>
+                <p class="favourite-place-card-description">
+                    The Mysore Palace, also known as Amba Vilas Palace, is a historical palace and a royal residence. It is located in Mysore, Karnataka. The palace is one of the most famous tourist attractions in India after the Taj Mahal and it has a rich history dating back to the 14th century.
+                </p>
+            </div>
+            <img
+                src="https://images.unsplash.com/photo-1593693399741-6f15c5d7f434?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                class="favourite-place-card-image"
+                alt="Mysore Palace"
+            />
+        </div>
+        
+        <!-- Card 4: Varanasi -->
+        <div class="favourite-place-card-container d-flex flex-row justify-content-between align-items-center">
+            <div class="flex-grow-1 mr-3">
+                <h1 class="favourite-place-card-heading">Varanasi</h1>
+                <p class="favourite-place-card-description">
+                    Varanasi, also known as Benares or Kashi, is a city on the banks of the Ganges river in Uttar Pradesh, India. It is the holiest of the seven sacred cities in Hinduism and Jainism, and played an important role in the development of Buddhism.
+                </p>
+            </div>
+            <img
+                src="https://images.unsplash.com/photo-1591275197586-6d6b5e4831b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                class="favourite-place-card-image"
+                alt="Varanasi"
+            />
+        </div>
+    </div>
+    
+    <!-- Code Snippets Section -->
+    <div class="container mt-5 mb-5">
+        <h3 class="mb-3">Complete Code Structure</h3>
+        
+        <h5 class="mt-4">HTML Structure:</h5>
+        <div class="code-snippet">
+&lt;!-- Container with background image --&gt;
+&lt;div class="favourite-places-bg-container"&gt;
+    
+    &lt;!-- Heading --&gt;
+    &lt;h1 class="favourite-places-heading"&gt;Favourite Places&lt;/h1&gt;
+    
+    &lt;!-- Individual Card --&gt;
+    &lt;div class="favourite-place-card-container d-flex flex-row"&gt;
+        
+        &lt;!-- Text Content --&gt;
+        &lt;div&gt;
+            &lt;h1 class="favourite-place-card-heading"&gt;Taj Mahal&lt;/h1&gt;
+            &lt;p class="favourite-place-card-description"&gt;
+                Description text here...
+            &lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Image --&gt;
+        &lt;img
+            src="image-url.jpg"
+            class="favourite-place-card-image"
+            alt="Taj Mahal"
+        /&gt;
+        
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+        </div>
+        
+        <h5 class="mt-4">CSS Styling:</h5>
+        <div class="code-snippet">
+/* Background Container */
+.favourite-places-bg-container {
+    background-image: url('bg-image.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Card Container */
+.favourite-place-card-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px; /* Space between cards */
+}
+
+/* Flexbox for side-by-side layout */
+.d-flex.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Image Styling */
+.favourite-place-card-image {
+    width: 120px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+        </div>
+    </div>
+    
+</body>
+</html>

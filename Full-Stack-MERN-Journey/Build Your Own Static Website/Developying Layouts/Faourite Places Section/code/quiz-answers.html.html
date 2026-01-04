@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Answers - Class 9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .question-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        .question-card:hover {
+            border-color: #25b1cc;
+            box-shadow: 0 3px 10px rgba(37, 177, 204, 0.1);
+        }
+        .question-number {
+            background-color: #25b1cc;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .answer-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid transparent;
+        }
+        .correct-answer {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+        }
+        .incorrect-answer {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        .explanation {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+        .code-example {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .key-point {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="quiz-container">
+        <h1 class="text-center mb-4">Class 9 Quiz Answers</h1>
+        <p class="text-center text-muted mb-4">HTML Elements & CSS Box Model</p>
+        
+        <!-- Question 1 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">1</div>
+                <h5 class="mb-0">Which HTML element defines an image?</h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> img
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> The <code>&lt;img&gt;</code> element is used to embed images in HTML documents.
+                <div class="code-example mt-2">
+&lt;img src="photo.jpg" alt="Description" /&gt;
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question 2 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">2</div>
+                <h5 class="mb-0">Which HTML Attribute specifies the path (URL) of the Image?</h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> src
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> The <code>src</code> attribute specifies the source file/location of the image.
+                <div class="key-point">
+                    <strong>Note:</strong> Always include the <code>alt</code> attribute for accessibility and SEO.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question 3 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">3</div>
+                <h5 class="mb-0">Which of the following is the correct syntax for defining an image?</h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> &lt;img src="image.jpg" /&gt;
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> The correct syntax includes the <code>&lt;img&gt;</code> tag with <code>src</code> attribute.
+                <div class="mt-2">
+                    <strong>Common Mistakes:</strong>
+                    <ul>
+                        <li><code>&lt;image src="photo.jpg"&gt;</code> - Wrong element name</li>
+                        <li><code>&lt;img&gt;photo.jpg&lt;/img&gt;</code> - Images don't have closing tags</li>
+                        <li><code>&lt;img source="photo.jpg" /&gt;</code> - Wrong attribute name</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question 4 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">4</div>
+                <h5 class="mb-0">The image element in HTML is a void element and does not have closing tag</h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> True
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> Yes, <code>&lt;img&gt;</code> is a void element. Void elements only have a start tag and no end tag.
+                <div class="code-example mt-2">
+&lt;!-- Void Elements --&gt;
+&lt;img src="image.jpg" /&gt;
+&lt;br /&gt;
+&lt;hr /&gt;
+&lt;input type="text" /&gt;
+&lt;meta charset="UTF-8" /&gt;
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question 5 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">5</div>
+                <h5 class="mb-0">Which of the following is the correct syntax of a void element?</h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> &lt;br /&gt;
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> <code>&lt;br /&gt;</code> is a void element for line break. The forward slash before closing is optional in HTML5 but recommended.
+            </div>
+        </div>
+        
+        <!-- Question 6 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">6</div>
+                <h5 class="mb-0">Identify the CSS property used to add space between elements.</h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> margin
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> <code>margin</code> adds space outside an element, while <code>padding</code> adds space inside.
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="p-3 border text-center" style="margin: 20px; background-color: #e7f3ff;">
+                            <strong>Margin Example</strong><br>
+                            Space is outside
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border text-center" style="padding: 20px; background-color: #d4edda;">
+                            <strong>Padding Example</strong><br>
+                            Space is inside
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question 7 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">7</div>
+                <h5 class="mb-0">Fill in the blank with an appropriate value for the given CSS Property: <code>.card { margin: _____________; }</code></h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> 20px
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> CSS values don't need quotes. The correct format is <code>20px</code> (not <code>"20px"</code> or <code>20 px</code> with space).
+                <div class="code-example mt-2">
+/* Correct */
+.card {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+/* Incorrect */
+.card {
+    margin: "20px";  /* Quotes not needed */
+    margin: 20 px;   /* No space between number and unit */
+}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Question 8 -->
+        <div class="question-card">
+            <div class="d-flex align-items-center mb-3">
+                <div class="question-number">8</div>
+                <h5 class="mb-0">Which of the following CSS Properties will apply margin to the top of an HTML element?</h5>
+            </div>
+            <div class="answer-box correct-answer">
+                <strong>Answer:</strong> margin-top
+            </div>
+            <div class="explanation">
+                <strong>Explanation:</strong> CSS provides specific properties for each side:
+                <div class="code-example mt-2">
+.element {
+    margin-top: 10px;    /* Top margin */
+    margin-right: 15px;  /* Right margin */
+    margin-bottom: 20px; /* Bottom margin */
+    margin-left: 5px;    /* Left margin */
+    
+    /* Shorthand for all sides */
+    margin: 10px 15px 20px 5px; /* top, right, bottom, left */
+}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Summary Card -->
+        <div class="card mt-5">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Key Takeaways</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>HTML Images:</h5>
+                        <ul>
+                            <li>Use <code>&lt;img&gt;</code> element</li>
+                            <li><code>src</code> attribute for image source</li>
+                            <li><code>alt</code> attribute for accessibility</li>
+                            <li>Images are void elements (no closing tag)</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>CSS Margin:</h5>
+                        <ul>
+                            <li><code>margin</code> creates space outside elements</li>
+                            <li>Use specific properties: <code>margin-top</code>, etc.</li>
+                            <li>Shorthand: <code>margin: top right bottom left;</code></li>
+                            <li>Values: numbers with units (e.g., <code>20px</code>)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert alert-success mt-3">
+                    <strong>Pro Tip:</strong> Always use <code>object-fit: cover</code> for images to maintain aspect ratio while filling container.
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
