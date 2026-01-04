@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Celebration Page</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff;
+        }
+        
+        /* Top Section */
+        .diwali-top-section {
+            background-image: url('https://d2clawv67efefq.cloudfront.net/ccbp-static-website/diwali-bg.png');
+            height: 40vh;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+        }
+        
+        /* Gradient overlay for better text readability */
+        .diwali-top-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+            z-index: 1;
+        }
+        
+        .diwali-top-section-heading {
+            color: white;
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            max-width: 300px;
+            padding: 25px;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+        }
+        
+        /* Bottom Section */
+        .diwali-bottom-section {
+            background-color: #e6f6ff;
+            padding: 30px 15px;
+            text-align: center;
+        }
+        
+        /* Card Styling */
+        .diwali-card-item {
+            background-color: white;
+            width: 160px;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .diwali-card-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .diwali-card-image {
+            height: 80px;
+            width: 80px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        
+        .diwali-card-name {
+            color: #616e7c;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .diwali-card-price {
+            color: #323f4b;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+        
+        /* Button Styling */
+        .diwali-button {
+            background-color: #25b1cc;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(37, 177, 204, 0.3);
+        }
+        
+        .diwali-button:hover {
+            background-color: #1a8ca3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 177, 204, 0.4);
+        }
+        
+        /* Section Title */
+        .section-title {
+            color: #1e293b;
+            font-family: 'Roboto', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .diwali-top-section-heading {
+                font-size: 2rem;
+                padding: 20px;
+            }
+            
+            .diwali-card-item {
+                width: 140px;
+                margin: 10px;
+            }
+            
+            .diwali-card-image {
+                height: 70px;
+                width: 70px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .diwali-card-item {
+                width: 130px;
+                padding: 15px;
+            }
+            
+            .diwali-top-section {
+                height: 35vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Top Section with CSS Background Image -->
+    <section class="diwali-top-section">
+        <h1 class="diwali-top-section-heading">
+            Celebrate Diwali with your friends
+        </h1>
+    </section>
+    
+    <!-- Bottom Section -->
+    <section class="diwali-bottom-section">
+        <h2 class="section-title">Diwali Special Items</h2>
+        
+        <div class="container">
+            <!-- First row of cards -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="diwali-card-item">
+                        <!-- HTML Image for product content -->
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/lamp-img.png" 
+                             alt="Diwali Lamp" 
+                             class="diwali-card-image">
+                        <h3 class="diwali-card-name">Diwali Air Balloon</h3>
+                        <p class="diwali-card-price">₹369</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="diwali-card-item">
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/diya-img.png" 
+                             alt="Diya Lamp" 
+                             class="diwali-card-image">
+                        <h3 class="diwali-card-name">Diwali - Lamp</h3>
+                        <p class="diwali-card-price">₹50</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second row of cards -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="diwali-card-item">
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/firework-img.png" 
+                             alt="Sparklers" 
+                             class="diwali-card-image">
+                        <h3 class="diwali-card-name">Sparklers</h3>
+                        <p class="diwali-card-price">₹150</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="diwali-card-item">
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/firecracker-img.png" 
+                             alt="Fire Crackers" 
+                             class="diwali-card-image">
+                        <h3 class="diwali-card-name">Fire Cracker</h3>
+                        <p class="diwali-card-price">₹560</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Button with margin for external spacing -->
+            <div class="text-center">
+                <button class="diwali-button">View More</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Development Process Notes -->
+    <section class="container mt-5 mb-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Development Process Used</h3>
+            </div>
+            <div class="card-body">
+                <h5>Step-by-Step Implementation:</h5>
+                <ol>
+                    <li><strong>Divided Layout:</strong> Top section (hero) + Bottom section (products)</li>
+                    <li><strong>Image Choice:</strong>
+                        <ul>
+                            <li>Top section → CSS Background Image (content overlays image)</li>
+                            <li>Product images → HTML Images (content, need alt text)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Spacing Applied:</strong>
+                        <ul>
+                            <li>Padding inside cards, button, sections</li>
+                            <li>Margin between cards, around button</li>
+                        </ul>
+                    </li>
+                    <li><strong>Flexbox Alignment:</strong> Used Bootstrap grid for responsive card layout</li>
+                </ol>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="alert alert-success">
+                            <h6>📌 CSS Background Image in Top Section:</h6>
+                            <pre class="mb-0"><code>.diwali-top-section {
+    background-image: url('diwali-bg.png');
+    background-size: cover;
+    height: 40vh;
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="alert alert-info">
+                            <h6>📌 HTML Image in Cards:</h6>
+                            <pre class="mb-0"><code>&lt;img src="lamp-img.png" 
+     alt="Diwali Lamp" 
+     class="diwali-card-image"&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
