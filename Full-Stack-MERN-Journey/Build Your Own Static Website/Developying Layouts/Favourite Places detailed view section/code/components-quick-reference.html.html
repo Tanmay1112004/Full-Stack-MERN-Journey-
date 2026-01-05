@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Components Quick Reference</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .reference-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .component-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid;
+        }
+        .carousel-section {
+            border-left-color: #007bff;
+        }
+        .embed-section {
+            border-left-color: #28a745;
+        }
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .step-by-step {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .warning-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .component-diagram {
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .diagram-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .diagram-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .arrow {
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="py-5">
+    
+    <div class="reference-card">
+        <h1 class="text-center mb-4" style="color: #2d3748;">Bootstrap Components Cheat Sheet</h1>
+        
+        <!-- Carousel Component -->
+        <section class="component-section carousel-section">
+            <h2 class="mb-3">🚗 Carousel Component</h2>
+            
+            <div class="component-diagram">
+                <h5 class="mb-3">Carousel Structure Diagram</h5>
+                <div class="diagram-line">
+                    <div class="diagram-item">carousel slide</div>
+                    <span class="arrow">→</span>
+                    <div class="diagram-item">carousel-inner</div>
+                    <span class="arrow">→</span>
+                    <div class="diagram-item">carousel-item</div>
+                </div>
+                <div class="diagram-line">
+                    <div class="diagram-item">carousel-indicators</div>
+                    <span class="arrow">↔</span>
+                    <div class="diagram-item">carousel-controls</div>
+                </div>
+            </div>
+            
+            <h5>Essential Code Structure:</h5>
+            <div class="code-example">
+&lt;div id="myCarousel" class="carousel slide" data-ride="carousel"&gt;
+    
+    &lt;!-- INDICATORS --&gt;
+    &lt;ol class="carousel-indicators"&gt;
+        &lt;li data-target="#myCarousel" data-slide-to="0" class="active"&gt;&lt;/li&gt;
+        &lt;li data-target="#myCarousel" data-slide-to="1"&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    
+    &lt;!-- SLIDES --&gt;
+    &lt;div class="carousel-inner"&gt;
+        &lt;div class="carousel-item active"&gt;
+            &lt;img src="image1.jpg" class="d-block w-100" alt="..."&gt;
+        &lt;/div&gt;
+        &lt;div class="carousel-item"&gt;
+            &lt;img src="image2.jpg" class="d-block w-100" alt="..."&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- CONTROLS --&gt;
+    &lt;a class="carousel-control-prev" href="#myCarousel" data-slide="prev"&gt;
+        &lt;span class="carousel-control-prev-icon"&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class="carousel-control-next" href="#myCarousel" data-slide="next"&gt;
+        &lt;span class="carousel-control-next-icon"&gt;&lt;/span&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+            </div>
+            
+            <div class="step-by-step">
+                <h6>🎯 Setup Steps:</h6>
+                <ol class="mb-0">
+                    <li>Add container with <code>carousel slide</code> classes</li>
+                    <li>Create indicators for each slide (match count)</li>
+                    <li>Add <code>carousel-inner</code> with slide items</li>
+                    <li>First slide must have <code>active</code> class</li>
+                    <li>Add images with <code>d-block w-100</code></li>
+                    <li>Include navigation controls</li>
+                </ol>
+            </div>
+            
+            <div class="warning-note">
+                <h6>⚠️ Common Issues:</h6>
+                <ul class="mb-0">
+                    <li>Missing <code>active</code> class on first slide</li>
+                    <li>Indicator count doesn't match slides</li>
+                    <li>Forgetting Bootstrap JS files</li>
+                    <li>Images not responsive (need <code>d-block w-100</code>)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Embed Component -->
+        <section class="component-section embed-section">
+            <h2 class="mb-3">🎬 Embed Component (YouTube)</h2>
+            
+            <h5>YouTube Video Embed:</h5>
+            <div class="code-example">
+&lt;!-- Responsive YouTube Embed --&gt;
+&lt;div class="embed-responsive embed-responsive-16by9"&gt;
+    &lt;iframe class="embed-responsive-item" 
+            src="https://www.youtube.com/embed/VIDEO_ID?rel=0" 
+            allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="step-by-step">
+                        <h6>🔍 Extract Video ID:</h6>
+                        <p><strong>Original URL:</strong><br>
+                        <code>https://www.youtube.com/watch?v=<mark>49HTIoCccDY</mark>&feature=share</code></p>
+                        <p><strong>Embed URL:</strong><br>
+                        <code>https://www.youtube.com/embed/<mark>49HTIoCccDY</mark>?rel=0</code></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="step-by-step">
+                        <h6>📐 Aspect Ratio Classes:</h6>
+                        <ul class="mb-0">
+                            <li><code>embed-responsive-16by9</code> (Default)</li>
+                            <li><code>embed-responsive-4by3</code></li>
+                            <li><code>embed-responsive-21by9</code></li>
+                            <li><code>embed-responsive-1by1</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning-note">
+                <h6>⚠️ Video Embed Tips:</h6>
+                <ul class="mb-0">
+                    <li>Always include <code>?rel=0</code> to disable related videos</li>
+                    <li>Use <code>allowfullscreen</code> attribute</li>
+                    <li>Double-check video ID extraction</li>
+                    <li>Test on mobile devices</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Layout Development Process -->
+        <section class="component-section" style="border-left-color: #fd7e14;">
+            <h2 class="mb-3">🏗️ Layout Development Process</h2>
+            
+            <h5>Step-by-Step Guide:</h5>
+            <div class="step-by-step">
+                <h6>1. Plan Structure</h6>
+                <p>Identify sections: Background, Heading, Content Cards, Media</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h6>2. Implement Background</h6>
+                <div class="code-example small">
+.bg-container {
+    background-image: url("bg.jpg");
+    background-size: cover;
+    min-height: 100vh;
+}
+                </div>
+            </div>
+            
+            <div class="step-by-step">
+                <h6>3. Add Bootstrap Carousel</h6>
+                <p>Insert carousel with 3+ images, proper alt text</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h6>4. Create Content Cards</h6>
+                <div class="code-example small">
+.card-container {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+                </div>
+            </div>
+            
+            <div class="step-by-step">
+                <h6>5. Add Video (Optional)</h6>
+                <p>Replace carousel with YouTube embed if needed</p>
+            </div>
+            
+            <div class="step-by-step">
+                <h6>6. Make Responsive</h6>
+                <p>Use Bootstrap grid and media queries</p>
+            </div>
+        </section>
+        
+        <!-- Quick Reference Table -->
+        <div class="mt-4">
+            <h4 class="mb-3">📋 Quick Reference Table</h4>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Component</th>
+                        <th>Key Classes</th>
+                        <th>Purpose</th>
+                        <th>Required Attributes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Carousel</td>
+                        <td><code>carousel slide</code></td>
+                        <td>Image slideshow</td>
+                        <td><code>data-ride="carousel"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Carousel Item</td>
+                        <td><code>carousel-item</code></td>
+                        <td>Individual slide</td>
+                        <td><code>active</code> on first</td>
+                    </tr>
+                    <tr>
+                        <td>Carousel Image</td>
+                        <td><code>d-block w-100</code></td>
+                        <td>Responsive image</td>
+                        <td><code>alt</code> text</td>
+                    </tr>
+                    <tr>
+                        <td>YouTube Embed</td>
+                        <td><code>embed-responsive embed-responsive-16by9</code></td>
+                        <td>Responsive video</td>
+                        <td><code>allowfullscreen</code></td>
+                    </tr>
+                    <tr>
+                        <td>Embed Iframe</td>
+                        <td><code>embed-responsive-item</code></td>
+                        <td>Video container</td>
+                        <td><code>src</code> with video ID</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Bootstrap JS Requirement -->
+        <div class="alert alert-warning mt-4">
+            <h5>⚡ Bootstrap JS Requirements</h5>
+            <p>Carousel requires these JS files (in order):</p>
+            <div class="code-example">
+&lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"&gt;&lt;/script&gt;
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
