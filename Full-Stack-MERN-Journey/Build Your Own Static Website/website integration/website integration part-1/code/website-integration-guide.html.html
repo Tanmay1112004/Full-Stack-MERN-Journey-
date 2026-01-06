@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Integration Guide</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .guide-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 1000px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .concept-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid;
+        }
+        .ui-kit-section {
+            border-left-color: #007bff;
+        }
+        .attributes-section {
+            border-left-color: #28a745;
+        }
+        .integration-section {
+            border-left-color: #fd7e14;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        .demo-box {
+            background: #e3f2fd;
+            border: 2px solid #bbdefb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .step-box {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+        .visual-demo {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .section-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 200px;
+        }
+        .arrow {
+            font-size: 30px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="guide-container">
+        <h1 class="text-center mb-4" style="color: #2d3748;">Website Integration Guide</h1>
+        
+        <!-- 1. CCBP UI Kit Section -->
+        <section class="concept-section ui-kit-section">
+            <h2 class="mb-4">🚀 1. CCBP UI Kit</h2>
+            
+            <p><strong>Purpose:</strong> Custom JavaScript library for multi-page navigation within single HTML file.</p>
+            
+            <div class="code-block">
+&lt;!-- How to Add CCBP UI Kit --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;!-- Bootstrap CDN --&gt;
+    &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"&gt;
+    &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your Sections Here --&gt;
+    
+    &lt;!-- CCBP UI Kit - MUST be before closing body tag --&gt;
+    &lt;script type="text/javascript" 
+            src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"&gt;
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+            
+            <div class="warning-box">
+                <h5>⚠️ Important Rules:</h5>
+                <ul class="mb-0">
+                    <li>Script must be placed <strong>before</strong> closing <code>&lt;/body&gt;</code> tag</li>
+                    <li>Section IDs <strong>must</strong> start with <code>section</code> prefix</li>
+                    <li>Only works with Bootstrap loaded</li>
+                    <li>Requires internet connection for CDN</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- 2. Display Function -->
+        <section class="concept-section">
+            <h2 class="mb-4">🔄 2. Display() Function</h2>
+            
+            <p><strong>Function:</strong> <code>display('sectionID')</code> - Shows specified section, hides others.</p>
+            
+            <div class="visual-demo">
+                <div class="section-card">
+                    <h5>Home Section</h5>
+                    <button class="btn btn-primary btn-sm" onclick="demoDisplay('sectionAbout')">
+                        Go to About
+                    </button>
+                    <div class="mt-2">
+                        <code>id="sectionHome"</code>
+                    </div>
+                </div>
+                
+                <div class="arrow">→</div>
+                
+                <div class="section-card">
+                    <h5>About Section</h5>
+                    <button class="btn btn-secondary btn-sm" onclick="demoDisplay('sectionHome')">
+                        Go Back
+                    </button>
+                    <div class="mt-2">
+                        <code>id="sectionAbout"</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;!-- How Display Function Works --&gt;
+&lt;div id="sectionHome"&gt;
+    &lt;h1&gt;Home Page&lt;/h1&gt;
+    &lt;button onclick="display('sectionAbout')"&gt;
+        Go to About
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id="sectionAbout"&gt;
+    &lt;h1&gt;About Page&lt;/h1&gt;
+    &lt;button onclick="display('sectionHome')"&gt;
+        Go Back
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- When clicked: --&gt;
+&lt;!-- 1. display('sectionAbout') hides sectionHome --&gt;
+&lt;!-- 2. display('sectionAbout') shows sectionAbout --&gt;
+&lt;!-- 3. Only one section visible at a time --&gt;
+            </div>
+        </section>
+        
+        <!-- 3. HTML Attributes -->
+        <section class="concept-section attributes-section">
+            <h2 class="mb-4">🏷️ 3. HTML Attributes for Integration</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="demo-box">
+                        <h5>id Attribute</h5>
+                        <p><strong>Purpose:</strong> Unique identifier for sections</p>
+                        
+                        <div class="code-block small">
+&lt;!-- CORRECT --&gt;
+&lt;div id="sectionHome"&gt;Home&lt;/div&gt;
+&lt;div id="sectionFavouritePlaces"&gt;Favorites&lt;/div&gt;
+&lt;div id="sectionDetailedView"&gt;Details&lt;/div&gt;
+
+&lt;!-- WILL NOT WORK --&gt;
+&lt;div id="homeSection"&gt;Home&lt;/div&gt;  &lt;!-- Wrong prefix --&gt;
+&lt;div id="favorites"&gt;Favorites&lt;/div&gt; &lt;!-- Missing prefix --&gt;
+&lt;div id="SectionDetails"&gt;Details&lt;/div&gt; &lt;!-- Capital S --&gt;
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="demo-box">
+                        <h5>onclick Attribute</h5>
+                        <p><strong>Purpose:</strong> Handle click events for navigation</p>
+                        
+                        <div class="code-block small">
+&lt;!-- CORRECT SYNTAX --&gt;
+&lt;button onclick="display('sectionAbout')"&gt;
+    Go to About
+&lt;/button&gt;
+
+&lt;!-- INCORRECT SYNTAX --&gt;
+&lt;button onclick=display('sectionAbout')&gt;&lt;/button&gt;
+&lt;button onclick="display("sectionAbout")"&gt;&lt;/button&gt;
+&lt;button onclick="display(sectionAbout)"&gt;&lt;/button&gt;
+
+&lt;!-- RULE: Double quotes outside, single quotes inside --&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. Integration Process -->
+        <section class="concept-section integration-section">
+            <h2 class="mb-4">🔗 4. Step-by-Step Integration Process</h2>
+            
+            <div class="step-box">
+                <h5>Step 1: Prepare Individual Sections</h5>
+                <p>Develop each section separately with complete HTML and CSS</p>
+                <div class="code-block small">
+&lt;!-- Home Section --&gt;
+&lt;div class="home-container"&gt;
+    &lt;h1&gt;Tourism&lt;/h1&gt;
+    &lt;button&gt;Get Started&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.home-container {
+    background-image: url('ocean.jpg');
+    height: 100vh;
+}
+&lt;/style&gt;
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h5>Step 2: Add Section IDs</h5>
+                <p>Wrap each section in a div with ID starting with <code>section</code></p>
+                <div class="code-block small">
+&lt;!-- Add ID with 'section' prefix --&gt;
+&lt;div id="sectionHome"&gt;
+    &lt;div class="home-container"&gt;
+        &lt;h1&gt;Tourism&lt;/h1&gt;
+        &lt;button onclick="display('sectionFavouritePlaces')"&gt;
+            Get Started
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h5>Step 3: Add Navigation Buttons</h5>
+                <p>Add onclick attributes to buttons for navigation between sections</p>
+                <div class="code-block small">
+&lt;!-- Navigation from Home to Favorites --&gt;
+&lt;button onclick="display('sectionFavouritePlaces')"&gt;
+    Get Started
+&lt;/button&gt;
+
+&lt;!-- Navigation from Favorites to Home --&gt;
+&lt;button onclick="display('sectionHome')"&gt;
+    Back
+&lt;/button&gt;
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h5>Step 4: Add All Sections to Single File</h5>
+                <p>Combine all sections in one HTML file with all CSS styles</p>
+                <div class="code-block small">
+&lt;!-- Complete Structure --&gt;
+&lt;div id="sectionHome"&gt;...&lt;/div&gt;
+&lt;div id="sectionFavouritePlaces"&gt;...&lt;/div&gt;
+&lt;div id="sectionDetailedView"&gt;...&lt;/div&gt;
+
+&lt;!-- Add CCBP UI Kit Script --&gt;
+&lt;script src="ccbp-ui-kit.js"&gt;&lt;/script&gt;
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h5>Step 5: Test Navigation</h5>
+                <p>Click through all buttons to ensure proper section transitions</p>
+            </div>
+        </section>
+        
+        <!-- 5. Tourism Website Example -->
+        <section class="concept-section">
+            <h2 class="mb-4">🏞️ 5. Tourism Website Integration Example</h2>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <div class="mb-3" style="font-size: 40px;">🏠</div>
+                        <h6>Home Section</h6>
+                        <p><code>id="sectionHome"</code></p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="demoDisplay('sectionFavouritePlaces')">
+                            Get Started →
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <div class="mb-3" style="font-size: 40px;">⭐</div>
+                        <h6>Favorites Section</h6>
+                        <p><code>id="sectionFavouritePlaces"</code></p>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="demoDisplay('sectionHome')">
+                            ← Back
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm" onclick="demoDisplay('sectionTajMahal')">
+                            View Details →
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-3">
+                        <div class="mb-3" style="font-size: 40px;">🏛️</div>
+                        <h6>Details Section</h6>
+                        <p><code>id="sectionTajMahal"</code></p>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="demoDisplay('sectionFavouritePlaces')">
+                            ← Back to Favorites
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block mt-3">
+&lt;!-- Navigation Flow --&gt;
+sectionHome → sectionFavouritePlaces → sectionTajMahal
+
+&lt;!-- Button Code --&gt;
+&lt;!-- In Home Section --&gt;
+&lt;button onclick="display('sectionFavouritePlaces')"&gt;Get Started&lt;/button&gt;
+
+&lt;!-- In Favorites Section --&gt;
+&lt;button onclick="display('sectionHome')"&gt;Back&lt;/button&gt;
+&lt;div onclick="display('sectionTajMahal')"&gt;Taj Mahal Card&lt;/div&gt;
+
+&lt;!-- In Details Section --&gt;
+&lt;button onclick="display('sectionFavouritePlaces')"&gt;Back&lt;/button&gt;
+            </div>
+        </section>
+        
+        <!-- 6. Common Mistakes -->
+        <section class="warning-box">
+            <h4>⚠️ Common Integration Mistakes</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>❌ Incorrect Section IDs:</h6>
+                    <ul>
+                        <li><code>id="home"</code> - Missing 'section' prefix</li>
+                        <li><code>id="section home"</code> - Space in ID</li>
+                        <li><code>id="SectionHome"</code> - Capital 'S'</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6>❌ Incorrect onclick Syntax:</h6>
+                    <ul>
+                        <li><code>onclick=display('section')</code> - Missing quotes</li>
+                        <li><code>onclick="display("section")"</code> - Quote mismatch</li>
+                        <li><code>onclick="display(section)"</code> - Missing quotes inside</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h6>✅ Correct Patterns:</h6>
+                    <div class="code-block small">
+&lt;!-- CORRECT --&gt;
+&lt;div id="sectionHome"&gt;...&lt;/div&gt;
+&lt;button onclick="display('sectionAbout')"&gt;Go&lt;/button&gt;
+
+&lt;!-- ALWAYS: --&gt;
+&lt;!-- 1. section prefix in IDs --&gt;
+&lt;!-- 2. Double quotes for onclick --&gt;
+&lt;!-- 3. Single quotes inside display() --&gt;
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    
+    <script>
+        // Demo function for visualization
+        function demoDisplay(section) {
+            alert(`Would navigate to: ${section}\n\nIn real implementation, this would show the ${section} and hide others.`);
+        }
+    </script>
+    
+</body>
+</html>

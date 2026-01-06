@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Integration Quiz & Reference</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .quiz-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .question-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 5px solid #007bff;
+            transition: all 0.3s;
+        }
+        .answer-section {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+        }
+        .show-answer {
+            display: block !important;
+        }
+        .correct {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+        }
+        .code-snippet {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .reference-card {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        .integration-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .flow-step {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            width: 180px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .flow-arrow {
+            font-size: 24px;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .quiz-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .quiz-button:hover {
+            background: #0056b3;
+        }
+        .key-points {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .error-examples {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="quiz-container">
+        <h1 class="text-center mb-4">Website Integration Quiz & Reference</h1>
+        
+        <!-- Quiz Questions -->
+        <div class="question-card">
+            <h4>Question 1: Where should the CCBP UI Kit Script Code be placed?</h4>
+            <div class="code-snippet">
+&lt;body&gt;
+    &lt;!-- Section content here --&gt;
+    
+    &lt;!-- Where to place CCBP UI Kit? --&gt;
+&lt;/body&gt;
+            </div>
+            <button class="quiz-button" onclick="toggleAnswer('answer1')">Show Answer</button>
+            <div class="answer-section" id="answer1">
+                <p><strong>Answer:</strong> Just before the closing <code>&lt;/body&gt;</code> tag</p>
+                <div class="code-snippet">
+&lt;body&gt;
+    &lt;!-- All sections here --&gt;
+    
+    &lt;script type="text/javascript" 
+            src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"&gt;
+    &lt;/script&gt;
+&lt;/body&gt;
+                </div>
+                <p><strong>Reason:</strong> The script needs to be loaded after all HTML elements are parsed.</p>
+            </div>
+        </div>
+        
+        <div class="question-card">
+            <h4>Question 2: Which HTML attribute is used to uniquely identify elements?</h4>
+            <button class="quiz-button" onclick="toggleAnswer('answer2')">Show Answer</button>
+            <div class="answer-section" id="answer2">
+                <p><strong>Answer:</strong> <code>id</code> attribute</p>
+                <div class="code-snippet">
+&lt;!-- Correct --&gt;
+&lt;div id="sectionHome"&gt;...&lt;/div&gt;
+&lt;div id="sectionAbout"&gt;...&lt;/div&gt;
+
+&lt;!-- Each id must be unique --&gt;
+                </div>
+                <p><strong>Note:</strong> For CCBP UI Kit, IDs must start with "section" prefix.</p>
+            </div>
+        </div>
+        
+        <div class="question-card">
+            <h4>Question 3: When integrating with CCBP UI Kit, section container IDs must start with what prefix?</h4>
+            <button class="quiz-button" onclick="toggleAnswer('answer3')">Show Answer</button>
+            <div class="answer-section" id="answer3">
+                <p><strong>Answer:</strong> <code>section</code> prefix</p>
+                <div class="code-snippet">
+&lt;!-- WILL WORK --&gt;
+&lt;div id="sectionHome"&gt;...&lt;/div&gt;
+&lt;div id="sectionFavouritePlaces"&gt;...&lt;/div&gt;
+
+&lt;!-- WILL NOT WORK --&gt;
+&lt;div id="homeSection"&gt;...&lt;/div&gt;
+&lt;div id="favorites"&gt;...&lt;/div&gt;
+                </div>
+                <p><strong>Important:</strong> The prefix must be lowercase "section" followed by name.</p>
+            </div>
+        </div>
+        
+        <div class="question-card">
+            <h4>Question 4: Choose the correct syntax for onclick attribute:</h4>
+            <div class="code-snippet">
+A) onclick= "display(section2)"
+B) onclick= display (section2)
+C) onclick="display('section2')"
+            </div>
+            <button class="quiz-button" onclick="toggleAnswer('answer4')">Show Answer</button>
+            <div class="answer-section correct" id="answer4">
+                <p><strong>Answer:</strong> C) <code>onclick="display('section2')"</code></p>
+                <p><strong>Rules:</strong></p>
+                <ul>
+                    <li>Double quotes around the entire attribute value</li>
+                    <li>Single quotes inside the display() function</li>
+                    <li>No spaces around equals sign</li>
+                    <li>Parentheses must be included</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="question-card">
+            <h4>Question 5: The onclick event occurs when an HTML element is clicked by the user.</h4>
+            <button class="quiz-button" onclick="toggleAnswer('answer5')">Show Answer</button>
+            <div class="answer-section" id="answer5">
+                <p><strong>Answer:</strong> True</p>
+                <div class="code-snippet">
+&lt;!-- Example --&gt;
+&lt;button onclick="display('sectionAbout')"&gt;
+    Click me to go to About section
+&lt;/button&gt;
+
+&lt;!-- Also works on other elements --&gt;
+&lt;div onclick="display('sectionHome')"&gt;
+    Click this div to go home
+&lt;/div&gt;
+                </div>
+                <p>The onclick attribute can be added to any HTML element, not just buttons.</p>
+            </div>
+        </div>
+        
+        <!-- Integration Flow Visualization -->
+        <div class="integration-flow">
+            <div class="flow-step">
+                <h5>🏠 Home</h5>
+                <p><code>id="sectionHome"</code></p>
+                <button class="btn btn-sm btn-primary" onclick="demoFlow(1)">Get Started</button>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <h5>⭐ Favorites</h5>
+                <p><code>id="sectionFavouritePlaces"</code></p>
+                <button class="btn btn-sm btn-secondary" onclick="demoFlow(2)">Back</button>
+                <button class="btn btn-sm btn-primary" onclick="demoFlow(3)">View Details</button>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <h5>🏛️ Details</h5>
+                <p><code>id="sectionTajMahalDetailedView"</code></p>
+                <button class="btn btn-sm btn-secondary" onclick="demoFlow(4)">Back</button>
+            </div>
+        </div>
+        
+        <!-- Key Points Reference -->
+        <div class="key-points">
+            <h4>✅ Key Integration Points</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>1. Section IDs:</h6>
+                    <ul>
+                        <li>Must start with <code>section</code></li>
+                        <li>Use descriptive names: <code>sectionHome</code>, <code>sectionAbout</code></li>
+                        <li>No spaces or special characters</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6>2. onclick Syntax:</h6>
+                    <ul>
+                        <li><code>onclick="display('sectionID')"</code></li>
+                        <li>Double quotes outside, single quotes inside</li>
+                        <li>Case-sensitive section IDs</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>3. CCBP UI Kit:</h6>
+                    <ul>
+                        <li>Place before <code>&lt;/body&gt;</code></li>
+                        <li>Requires Bootstrap</li>
+                        <li>Internet needed for CDN</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h6>4. Navigation Flow:</h6>
+                    <ul>
+                        <li>Only one section visible</li>
+                        <li>Use back buttons in each section</li>
+                        <li>Test all navigation paths</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Common Errors -->
+        <div class="error-examples">
+            <h4>❌ Common Integration Errors</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>ID Errors:</h6>
+                    <div class="code-snippet small">
+&lt;!-- ERROR: Missing prefix --&gt;
+&lt;div id="home"&gt;...&lt;/div&gt;
+
+&lt;!-- ERROR: Wrong prefix --&gt;
+&lt;div id="HomeSection"&gt;...&lt;/div&gt;
+
+&lt;!-- ERROR: Space in ID --&gt;
+&lt;div id="section home"&gt;...&lt;/div&gt;
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h6>onclick Errors:</h6>
+                    <div class="code-snippet small">
+&lt;!-- ERROR: Wrong quotes --&gt;
+&lt;button onclick="display("section")"&gt;&lt;/button&gt;
+
+&lt;!-- ERROR: Missing quotes --&gt;
+&lt;button onclick=display('section')&gt;&lt;/button&gt;
+
+&lt;!-- ERROR: Missing parentheses --&gt;
+&lt;button onclick="display'section'"&gt;&lt;/button&gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Reference Table -->
+        <div class="mt-4">
+            <h4>📋 Quick Reference Table</h4>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Component</th>
+                        <th>Correct Syntax</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Section ID</td>
+                        <td><code>id="sectionName"</code></td>
+                        <td>Unique section identifier</td>
+                        <td><code>id="sectionHome"</code></td>
+                    </tr>
+                    <tr>
+                        <td>onclick Attribute</td>
+                        <td><code>onclick="display('sectionID')"</code></td>
+                        <td>Navigate between sections</td>
+                        <td><code>onclick="display('sectionAbout')"</code></td>
+                    </tr>
+                    <tr>
+                        <td>CCBP UI Kit</td>
+                        <td>Before <code>&lt;/body&gt;</code></td>
+                        <td>Enable navigation</td>
+                        <td>Last script before body closes</td>
+                    </tr>
+                    <tr>
+                        <td>Back Button</td>
+                        <td>In every section</td>
+                        <td>Return to previous section</td>
+                        <td><code>onclick="display('sectionHome')"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Integration Checklist -->
+        <div class="reference-card">
+            <h4>✅ Integration Checklist</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check1">
+                <label class="form-check-label" for="check1">All section IDs start with 'section' prefix</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check2">
+                <label class="form-check-label" for="check2">onclick attributes use correct quote syntax</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check3">
+                <label class="form-check-label" for="check3">CCBP UI Kit script placed before &lt;/body&gt;</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check4">
+                <label class="form-check-label" for="check4">All CSS styles included in single file</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check5">
+                <label class="form-check-label" for="check5">Navigation tested in both directions</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="check6">
+                <label class="form-check-label" for="check6">Back button available in each section</label>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        // Toggle answer visibility
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.classList.toggle('show-answer');
+        }
+        
+        // Demo flow function
+        function demoFlow(step) {
+            const messages = [
+                "Clicking 'Get Started' would call: display('sectionFavouritePlaces')",
+                "Clicking 'Back' would call: display('sectionHome')",
+                "Clicking 'View Details' would call: display('sectionTajMahalDetailedView')",
+                "Clicking 'Back' would call: display('sectionFavouritePlaces')"
+            ];
+            alert(messages[step - 1]);
+        }
+        
+        // Check all checkboxes for demonstration
+        document.querySelectorAll('.form-check-input').forEach(checkbox => {
+            checkbox.checked = true;
+        });
+    </script>
+    
+</body>
+</html>
