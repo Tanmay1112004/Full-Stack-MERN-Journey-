@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lists Guide</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #343a40;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #495057;
+            margin-top: 30px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .example-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+        }
+        
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .list-demo {
+            background-color: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .style-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .style-box {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 HTML Lists Complete Guide</h1>
+        
+        <!-- Introduction -->
+        <section>
+            <h2>Introduction to HTML Lists</h2>
+            <p>HTML lists are used to group related items together. They make content more readable and organized.</p>
+            
+            <div class="example-box">
+                <h3>Real-world Examples:</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Unordered List Examples:</h4>
+                        <ul>
+                            <li>Shopping list items</li>
+                            <li>Features of a product</li>
+                            <li>List of hobbies</li>
+                            <li>Ingredients in a recipe</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Ordered List Examples:</h4>
+                        <ol>
+                            <li>Step-by-step instructions</li>
+                            <li>Ranking of items</li>
+                            <li>Chronological events</li>
+                            <li>Priority tasks</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Unordered Lists -->
+        <section>
+            <h2>1. Unordered Lists (<code>&lt;ul&gt;</code>)</h2>
+            <p>Used for items with no specific order or sequence.</p>
+            
+            <div class="code-block">
+&lt;!-- Basic Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+            </div>
+            
+            <h3>List Style Types:</h3>
+            <div class="style-demo">
+                <div class="style-box">
+                    <h4>Disc (Default)</h4>
+                    <ul style="list-style-type: disc;">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <code>list-style-type: disc;</code>
+                </div>
+                
+                <div class="style-box">
+                    <h4>Circle</h4>
+                    <ul style="list-style-type: circle;">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <code>list-style-type: circle;</code>
+                </div>
+                
+                <div class="style-box">
+                    <h4>Square</h4>
+                    <ul style="list-style-type: square;">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <code>list-style-type: square;</code>
+                </div>
+                
+                <div class="style-box">
+                    <h4>None</h4>
+                    <ul style="list-style-type: none;">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <code>list-style-type: none;</code>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Ordered Lists -->
+        <section>
+            <h2>2. Ordered Lists (<code>&lt;ol&gt;</code>)</h2>
+            <p>Used for items with specific order or sequence.</p>
+            
+            <div class="code-block">
+&lt;!-- Basic Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Step 1: Prepare ingredients&lt;/li&gt;
+    &lt;li&gt;Step 2: Mix everything&lt;/li&gt;
+    &lt;li&gt;Step 3: Bake for 30 minutes&lt;/li&gt;
+&lt;/ol&gt;
+            </div>
+            
+            <h3>Numbering Styles:</h3>
+            <div class="style-demo">
+                <div class="style-box">
+                    <h4>Decimal (Default)</h4>
+                    <ol style="list-style-type: decimal;">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                    </ol>
+                    <code>list-style-type: decimal;</code>
+                </div>
+                
+                <div class="style-box">
+                    <h4>Upper Roman</h4>
+                    <ol style="list-style-type: upper-roman;">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                    </ol>
+                    <code>list-style-type: upper-roman;</code>
+                </div>
+                
+                <div class="style-box">
+                    <h4>Lower Alpha</h4>
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                    </ol>
+                    <code>list-style-type: lower-alpha;</code>
+                </div>
+                
+                <div class="style-box">
+                    <h4>Upper Alpha</h4>
+                    <ol style="list-style-type: upper-alpha;">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                    </ol>
+                    <code>list-style-type: upper-alpha;</code>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Comparison Table -->
+        <section>
+            <h2>3. Comparison: Ordered vs Unordered Lists</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Unordered List (<code>&lt;ul&gt;</code>)</th>
+                        <th>Ordered List (<code>&lt;ol&gt;</code>)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Items with no specific order</td>
+                        <td>Items with specific order/sequence</td>
+                    </tr>
+                    <tr>
+                        <td>Default Marker</td>
+                        <td>Bullets (•)</td>
+                        <td>Numbers (1, 2, 3...)</td>
+                    </tr>
+                    <tr>
+                        <td>HTML Tag</td>
+                        <td><code>&lt;ul&gt;&lt;/ul&gt;</code></td>
+                        <td><code>&lt;ol&gt;&lt;/ol&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td>List Items</td>
+                        <td colspan="2" style="text-align: center;"><code>&lt;li&gt;&lt;/li&gt;</code> (same for both)</td>
+                    </tr>
+                    <tr>
+                        <td>Common Uses</td>
+                        <td>• Shopping lists<br>• Features<br>• Ingredients</td>
+                        <td>• Instructions<br>• Rankings<br>• Steps</td>
+                    </tr>
+                    <tr>
+                        <td>Styling Property</td>
+                        <td colspan="2" style="text-align: center;"><code>list-style-type</code> (different values for each)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Practical Example -->
+        <section>
+            <h2>4. Practical Example: Tourism Website</h2>
+            <div class="example-box">
+                <h3>Tourist Attractions with Lists</h3>
+                
+                <div class="code-block">
+&lt;!-- In Detailed View Section --&gt;
+&lt;div class="detailed-view-card-text-container"&gt;
+    &lt;h1&gt;Golden Temple&lt;/h1&gt;
+    &lt;p&gt;Description...&lt;/p&gt;
+    
+    &lt;h3&gt;Nearby Attractions:&lt;/h3&gt;
+    &lt;!-- Unordered List --&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Jallianwala Bagh&lt;/li&gt;
+        &lt;li&gt;Wagah Border&lt;/li&gt;
+        &lt;li&gt;Harike Wetland&lt;/li&gt;
+        &lt;li&gt;Bathinda Fort&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h3&gt;Best Time to Visit:&lt;/h3&gt;
+    &lt;!-- Ordered List --&gt;
+    &lt;ol&gt;
+        &lt;li&gt;October to March (Pleasant weather)&lt;/li&gt;
+        &lt;li&gt;April to June (Warm)&lt;/li&gt;
+        &lt;li&gt;July to September (Rainy)&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quiz Section -->
+        <section>
+            <h2>5. Quick Quiz</h2>
+            <div class="list-demo">
+                <h3>Question 1: Which HTML tag starts an unordered list?</h3>
+                <p><strong>Answer:</strong> <code>&lt;ul&gt;</code></p>
+                
+                <h3>Question 2: Which HTML tag starts an ordered list?</h3>
+                <p><strong>Answer:</strong> <code>&lt;ol&gt;</code></p>
+                
+                <h3>Question 3: What CSS property styles list markers?</h3>
+                <p><strong>Answer:</strong> <code>list-style-type</code></p>
+                
+                <h3>Question 4: How do ordered and unordered lists differ?</h3>
+                <p><strong>Answer:</strong> Ordered lists show sequence (1, 2, 3...), unordered lists show items without specific order (bullets).</p>
+            </div>
+        </section>
+        
+        <!-- Best Practices -->
+        <section>
+            <h2>6. Best Practices</h2>
+            <ul>
+                <li>Use <strong>&lt;ul&gt;</strong> for navigation menus</li>
+                <li>Use <strong>&lt;ol&gt;</strong> for step-by-step instructions</li>
+                <li>Always close your <code>&lt;li&gt;</code> tags</li>
+                <li>Use CSS to style lists instead of inline styles</li>
+                <li>Nest lists properly for hierarchical data</li>
+                <li>Use semantic list types for accessibility</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
