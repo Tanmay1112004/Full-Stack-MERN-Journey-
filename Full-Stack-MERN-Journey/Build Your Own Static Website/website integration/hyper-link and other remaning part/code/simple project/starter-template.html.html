@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Template - MERN Stack</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Inline styles for quick setup */
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 100px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-code"></i> MERN Stack
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4">Welcome to MERN Stack Development</h1>
+            <p class="lead mb-4">Build amazing web applications with MongoDB, Express, React, and Node.js</p>
+            <a href="#learn-more" class="btn btn-light btn-lg">
+                <i class="fas fa-rocket"></i> Get Started
+            </a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="py-5" id="learn-more">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose This Template?</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center border-0 shadow">
+                        <div class="card-body">
+                            <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Quick Setup</h4>
+                            <p class="card-text">Pre-configured with Bootstrap, Font Awesome, and proper file structure for immediate development.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center border-0 shadow">
+                        <div class="card-body">
+                            <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Responsive Design</h4>
+                            <p class="card-text">Built with Bootstrap 4 for perfect display on all devices - mobile, tablet, and desktop.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center border-0 shadow">
+                        <div class="card-body">
+                            <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                            <h4 class="card-title">Cloud Ready</h4>
+                            <p class="card-text">Includes Cloudinary integration for easy image hosting and CDN usage.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- File Structure Guide -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Project Structure</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <i class="fas fa-folder"></i> Recommended Structure
+                        </div>
+                        <div class="card-body">
+                            <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px;">
+my-project/
+├── index.html
+├── about.html
+├── contact.html
+├── css/
+│   ├── style.css
+│   └── responsive.css
+├── js/
+│   └── main.js
+├── images/
+│   ├── logo.png
+│   └── hero-bg.jpg
+└── README.md
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">
+                            <i class="fas fa-code"></i> Quick Links Example
+                        </div>
+                        <div class="card-body">
+                            <div class="code-snippet">
+                                <code>
+&lt;!-- Link CSS --&gt;
+&lt;link rel="stylesheet" href="css/style.css"&gt;
+
+&lt;!-- Link JS --&gt;
+&lt;script src="js/main.js"&gt;&lt;/script&gt;
+
+&lt;!-- Link Image --&gt;
+&lt;img src="images/logo.png" alt="Logo"&gt;
+
+&lt;!-- Link Page --&gt;
+&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Setup Checklist -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Setup Checklist</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <input type="checkbox" class="mr-2" checked>
+                            <strong>✅ Install Visual Studio Code</strong>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" class="mr-2" checked>
+                            <strong>✅ Create Cloudinary Account</strong>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" class="mr-2">
+                            <strong>Download Live Server Extension</strong>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" class="mr-2">
+                            <strong>Organize Project Folders</strong>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" class="mr-2">
+                            <strong>Link CSS & JS Files</strong>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" class="mr-2">
+                            <strong>Test on Different Browsers</strong>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="checkbox" class="mr-2">
+                            <strong>Upload Images to Cloudinary</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 MERN Stack Journey. All rights reserved.</p>
+            <p class="mb-0">
+                <a href="#" class="text-white mr-3"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" class="text-white mr-3"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" class="text-white"><i class="fab fa-twitter"></i> Twitter</a>
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
