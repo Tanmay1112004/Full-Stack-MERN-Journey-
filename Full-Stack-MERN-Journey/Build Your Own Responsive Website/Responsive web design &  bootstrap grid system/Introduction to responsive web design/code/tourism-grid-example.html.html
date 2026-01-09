@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid System - Complete Guide</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --success-color: #4cc9f0;
+            --warning-color: #f8961e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .guide-container {
+            max-width: 1400px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .header-section .badge {
+            background-color: var(--accent-color);
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        
+        .content-section {
+            padding: 40px;
+        }
+        
+        .grid-visual {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .grid-item {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+        
+        .grid-item:nth-child(2n) {
+            background-color: var(--secondary-color);
+        }
+        
+        .grid-item:nth-child(3n) {
+            background-color: var(--accent-color);
+        }
+        
+        .grid-item:nth-child(4n) {
+            background-color: var(--success-color);
+        }
+        
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .example-section {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            background-color: #f8fafc;
+        }
+        
+        .example-section h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .visual-guide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(90deg, #f8f9fa 50%, transparent 50%);
+        }
+        
+        .column-visual {
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(90deg, 
+                #4361ee 8.33%, 
+                #3a0ca3 16.66%, 
+                #7209b7 25%, 
+                #4cc9f0 33.33%,
+                #f8961e 41.66%,
+                #f72585 50%,
+                #4361ee 58.33%,
+                #3a0ca3 66.66%,
+                #7209b7 75%,
+                #4cc9f0 83.33%,
+                #f8961e 91.66%,
+                #f72585 100%
+            );
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .column-numbers {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .column-numbers span {
+            width: 8.33%;
+            text-align: center;
+        }
+        
+        .responsive-demo {
+            background-color: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .demo-item {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .quiz-section {
+            background-color: #e3f2fd;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .quiz-question {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 20px;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        
+        <!-- Header Section -->
+        <div class="header-section">
+            <h1>📱 Bootstrap Grid System</h1>
+            <p class="lead">Class 14: Responsive Web Design & Layout</p>
+            <span class="badge">12-Column Fluid Grid</span>
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content-section">
+            
+            <!-- Introduction -->
+            <section class="mb-5">
+                <h2 class="mb-4">📋 What is Bootstrap Grid System?</h2>
+                <p class="lead">
+                    The Bootstrap Grid System is a mobile-first, responsive grid system that uses containers, rows, 
+                    and columns to layout and align content. It's built with flexbox and allows up to 12 columns across the page.
+                </p>
+                
+                <div class="visual-guide">
+                    <div class="column-visual"></div>
+                </div>
+                <div class="column-numbers">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+                    <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+                </div>
+            </section>
+            
+            <!-- Basic Structure -->
+            <div class="example-section">
+                <h3>1. Basic Grid Structure</h3>
+                
+                <div class="code-block">
+&lt;!-- Container: Wraps entire grid --&gt;
+&lt;div class="container"&gt;
+    
+    &lt;!-- Row: Horizontal group of columns --&gt;
+    &lt;div class="row"&gt;
+        
+        &lt;!-- Column: Content container --&gt;
+        &lt;div class="col-12"&gt;
+            Content goes here
+        &lt;/div&gt;
+        
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-visual mt-4">
+                    <h5>Visual Representation:</h5>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="grid-item">col-12 (Full width)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Multiple Columns -->
+            <div class="example-section">
+                <h3>2. Multiple Column Layouts</h3>
+                
+                <h5 class="mt-4">Two Equal Columns:</h5>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;div class="col-6"&gt;Column 1&lt;/div&gt;
+    &lt;div class="col-6"&gt;Column 2&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-visual mt-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="grid-item">col-6</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="grid-item">col-6</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">Three Equal Columns:</h5>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;div class="col-4"&gt;Column 1&lt;/div&gt;
+    &lt;div class="col-4"&gt;Column 2&lt;/div&gt;
+    &lt;div class="col-4"&gt;Column 3&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-visual mt-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="grid-item">col-4</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="grid-item">col-4</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="grid-item">col-4</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">Four Equal Columns:</h5>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;div class="col-3"&gt;Column 1&lt;/div&gt;
+    &lt;div class="col-3"&gt;Column 2&lt;/div&gt;
+    &lt;div class="col-3"&gt;Column 3&lt;/div&gt;
+    &lt;div class="col-3"&gt;Column 4&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-visual mt-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="grid-item">col-3</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="grid-item">col-3</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="grid-item">col-3</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="grid-item">col-3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unequal Columns -->
+            <div class="example-section">
+                <h3>3. Unequal Column Layouts</h3>
+                
+                <h5 class="mt-4">8/4 Split (Common for Main/Sidebar):</h5>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;div class="col-8"&gt;Main Content&lt;/div&gt;
+    &lt;div class="col-4"&gt;Sidebar&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-visual mt-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="grid-item">col-8 (Main Content)</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="grid-item">col-4 (Sidebar)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">9/3 Split:</h5>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;div class="col-9"&gt;Wider Content&lt;/div&gt;
+    &lt;div class="col-3"&gt;Narrow Sidebar&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-visual mt-3">
+                    <div class="row">
+                        <div class="col-9">
+                            <div class="grid-item">col-9</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="grid-item">col-3</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="mt-4">3/6/3 Split (Two Sidebars):</h5>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;div class="col-3"&gt;Left Sidebar&lt;/div&gt;
+    &lt;div class="col-6"&gt;Main Content&lt;/div&gt;
+    &lt;div class="col-3"&gt;Right Sidebar&lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-visual mt-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="grid-item">col-3 (Left)</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="grid-item">col-6 (Main)</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="grid-item">col-3 (Right)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Practical Examples -->
+            <div class="example-section">
+                <h3>4. Practical Examples</h3>
+                
+                <h5 class="mt-4">Tourism Website Layout:</h5>
+                <div class="code-block">
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-12"&gt;
+            &lt;h1&gt;Popular Tourist Destinations&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="row"&gt;
+        &lt;div class="col-8"&gt;
+            &lt;h2&gt;Taj Mahal&lt;/h2&gt;
+            &lt;p&gt;Detailed description...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="col-4"&gt;
+            &lt;h2&gt;Mysore Palace&lt;/h2&gt;
+            &lt;p&gt;Brief description...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="row"&gt;
+        &lt;div class="col-4"&gt;Golden Temple&lt;/div&gt;
+        &lt;div class="col-4"&gt;Varanasi&lt;/div&gt;
+        &lt;div class="col-4"&gt;Goa Beaches&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="responsive-demo mt-4">
+                    <h5>Live Demo:</h5>
+                    <div class="container">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="demo-item">Website Header</div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-8">
+                                <div class="demo-item">Main Content Area</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="demo-item">Sidebar</div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="demo-item">Feature 1</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="demo-item">Feature 2</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="demo-item">Feature 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Rules -->
+            <div class="example-section">
+                <h3>5. Grid System Rules</h3>
+                
+                <div class="alert alert-primary">
+                    <h5>📌 Rule 1: Containers contain Rows</h5>
+                    <p class="mb-0">Rows must be placed inside a container for proper padding and alignment.</p>
+                </div>
+                
+                <div class="alert alert-success">
+                    <h5>📌 Rule 2: Rows contain Columns</h5>
+                    <p class="mb-0">Columns should always be placed inside rows to maintain proper gutter spacing.</p>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <h5>📌 Rule 3: Columns total should be ≤ 12</h5>
+                    <p class="mb-0">The sum of column numbers in a row should not exceed 12. Extra columns will wrap to a new line.</p>
+                </div>
+                
+                <div class="alert alert-info">
+                    <h5>📌 Rule 4: Use content inside columns</h5>
+                    <p class="mb-0">Only place content inside columns. Never place content directly in rows or containers.</p>
+                </div>
+            </div>
+            
+            <!-- Common Mistakes -->
+            <div class="example-section">
+                <h3>6. Common Mistakes to Avoid</h3>
+                
+                <div class="code-block">
+&lt;!-- ❌ WRONG: Column outside row --&gt;
+&lt;div class="container"&gt;
+    &lt;div class="col-12"&gt;Content&lt;/div&gt; &lt;!-- Missing row --&gt;
+&lt;/div&gt;
+
+&lt;!-- ❌ WRONG: Row outside container --&gt;
+&lt;div class="row"&gt; &lt;!-- Missing container --&gt;
+    &lt;div class="col-12"&gt;Content&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- ❌ WRONG: Content in row --&gt;
+&lt;div class="row"&gt;
+    Content here &lt;!-- Should be in column --&gt;
+    &lt;div class="col-12"&gt;Content&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- ✅ CORRECT: Proper structure --&gt;
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-12"&gt;Content&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+            
+            <!-- Quiz Section -->
+            <div class="quiz-section">
+                <h3>📝 Quick Quiz</h3>
+                
+                <div class="quiz-question">
+                    <h5>Question 1: How many columns does Bootstrap Grid System have?</h5>
+                    <div class="alert alert-success mt-2">
+                        <strong>Answer:</strong> 12 columns
+                        <p class="mb-0 mt-2">Bootstrap uses a 12-column fluid grid system that scales with the device.</p>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h5>Question 2: What is the correct order of grid components?</h5>
+                    <div class="alert alert-success mt-2">
+                        <strong>Answer:</strong> Container → Row → Column
+                        <p class="mb-0 mt-2">Containers hold rows, rows hold columns, and columns hold content.</p>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h5>Question 3: What happens if column numbers exceed 12 in a row?</h5>
+                    <div class="alert alert-success mt-2">
+                        <strong>Answer:</strong> Extra columns wrap to a new line
+                        <p class="mb-0 mt-2">Columns exceeding 12 will automatically wrap to the next line.</p>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <h5>Question 4: What class creates a full-width column?</h5>
+                    <div class="alert alert-success mt-2">
+                        <strong>Answer:</strong> col-12
+                        <p class="mb-0 mt-2">col-12 occupies all 12 columns, making it full width.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cheat Sheet -->
+            <div class="example-section">
+                <h3>7. Grid System Cheat Sheet</h3>
+                
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Class</th>
+                                <th>Columns</th>
+                                <th>Width</th>
+                                <th>Example Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>col-1</code></td>
+                                <td>1</td>
+                                <td>8.33%</td>
+                                <td>Icons, small elements</td>
+                            </tr>
+                            <tr>
+                                <td><code>col-2</code></td>
+                                <td>2</td>
+                                <td>16.66%</td>
+                                <td>Labels, small widgets</td>
+                            </tr>
+                            <tr>
+                                <td><code>col-3</code></td>
+                                <td>3</td>
+                                <td>25%</td>
+                                <td>Sidebars, quarter width</td>
+                            </tr>
+                            <tr>
+                                <td><code>col-4</code></td>
+                                <td>4</td>
+                                <td>33.33%</td>
+                                <td>Three column layout</td>
+                            </tr>
+                            <tr>
+                                <td><code>col-6</code></td>
+                                <td>6</td>
+                                <td>50%</td>
+                                <td>Two column layout</td>
+                            </tr>
+                            <tr>
+                                <td><code>col-8</code></td>
+                                <td>8</td>
+                                <td>66.66%</td>
+                                <td>Main content area</td>
+                            </tr>
+                            <tr>
+                                <td><code>col-9</code></td>
+                                <td>9</td>
+                                <td>75%</td>
+                                <td>Wide content area</td>
+                            </tr>
+                            <tr>
+                                <td><code>col-12</code></td>
+                                <td>12</td>
+                                <td>100%</td>
+                                <td>Full width content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
