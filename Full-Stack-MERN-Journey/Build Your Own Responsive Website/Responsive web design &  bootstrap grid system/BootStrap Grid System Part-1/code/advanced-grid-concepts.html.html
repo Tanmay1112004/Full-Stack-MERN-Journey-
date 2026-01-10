@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Bootstrap Grid Concepts</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #f72585;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .guide-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .content-section {
+            padding: 40px;
+        }
+        
+        .concept-box {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .grid-demo {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .col-demo {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+        
+        .col-demo.secondary {
+            background-color: var(--secondary);
+        }
+        
+        .col-demo.accent {
+            background-color: var(--accent);
+        }
+        
+        .col-demo.success {
+            background-color: var(--success);
+        }
+        
+        .breakpoint-visual {
+            background: linear-gradient(90deg, 
+                #f8f9fa 0%, 
+                #dee2e6 20%, 
+                #ced4da 40%, 
+                #adb5bd 60%, 
+                #6c757d 80%, 
+                #495057 100%
+            );
+            height: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .breakpoint-marker {
+            position: absolute;
+            top: -25px;
+            transform: translateX(-50%);
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .breakpoint-marker::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background-color: var(--danger);
+        }
+        
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .example-section {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            background-color: #f8fafc;
+        }
+        
+        .responsive-demo {
+            background-color: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .demo-item {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ced4da;
+        }
+        
+        .quiz-section {
+            background-color: #e3f2fd;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .device-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 20px;
+            }
+            
+            .header-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        
+        <!-- Header Section -->
+        <div class="header-section">
+            <h1>📱 Advanced Grid Concepts</h1>
+            <p class="lead">Column Wrapping & Responsive Breakpoints</p>
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content-section">
+            
+            <!-- Column Wrapping -->
+            <div class="example-section">
+                <h2 class="mb-4">1. Column Wrapping</h2>
+                
+                <p>When the total width of columns in a row exceeds 12, extra columns wrap to a new line.</p>
+                
+                <h4 class="mt-4">Example: 4 columns of col-6</h4>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;div class="col-6"&gt;Column 1 (6)&lt;/div&gt;
+    &lt;div class="col-6"&gt;Column 2 (6)&lt;/div&gt;  &lt;!-- Total: 12 --&gt;
+    &lt;div class="col-6"&gt;Column 3 (6)&lt;/div&gt;  &lt;!-- WRAPS: New line --&gt;
+    &lt;div class="col-6"&gt;Column 4 (6)&lt;/div&gt;  &lt;!-- Total: 12 in new line --&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="grid-demo mt-3">
+                    <h5>Visual Result:</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="col-demo">Column 1 (col-6)</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="col-demo secondary">Column 2 (col-6)</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="col-demo accent">Column 3 (col-6)</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="col-demo success">Column 4 (col-6)</div>
+                        </div>
+                    </div>
+                    <p class="mt-3 mb-0"><strong>Math:</strong> 6 + 6 + 6 + 6 = 24 columns → Wraps after 12</p>
+                </div>
+                
+                <h4 class="mt-4">Different Combinations:</h4>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="grid-demo">
+                            <h6>col-4 + col-4 + col-6 + col-6</h6>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="col-demo">col-4</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="col-demo secondary">col-4</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="col-demo accent">col-6</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="col-demo success">col-6</div>
+                                </div>
+                            </div>
+                            <p class="mt-2 mb-0"><strong>Math:</strong> 4 + 4 + 6 + 6 = 20 → Wraps after 12</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="grid-demo">
+                            <h6>col-3 + col-9 + col-4 + col-8</h6>
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="col-demo">col-3</div>
+                                </div>
+                                <div class="col-9">
+                                    <div class="col-demo secondary">col-9</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="col-demo accent">col-4</div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="col-demo success">col-8</div>
+                                </div>
+                            </div>
+                            <p class="mt-2 mb-0"><strong>Math:</strong> 3 + 9 + 4 + 8 = 24 → Wraps after 12</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info mt-4">
+                    <h5>📌 Key Rule:</h5>
+                    <p class="mb-0"><strong>Columns always wrap to new lines when their total exceeds 12 in a row.</strong> This happens regardless of screen size.</p>
+                </div>
+            </div>
+            
+            <!-- Responsive Breakpoints -->
+            <div class="example-section">
+                <h2 class="mb-4">2. Responsive Breakpoints</h2>
+                
+                <p>Bootstrap has 5 responsive tiers for different device sizes:</p>
+                
+                <div class="breakpoint-visual">
+                    <div class="breakpoint-marker" style="left: 0%;">xs</div>
+                    <div class="breakpoint-marker" style="left: 20%;">sm<br>≥576px</div>
+                    <div class="breakpoint-marker" style="left: 40%;">md<br>≥768px</div>
+                    <div class="breakpoint-marker" style="left: 60%;">lg<br>≥992px</div>
+                    <div class="breakpoint-marker" style="left: 80%;">xl<br>≥1200px</div>
+                    <div class="breakpoint-marker" style="left: 100%;">xxl</div>
+                </div>
+                
+                <div class="table-responsive mt-4">
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Device</th>
+                                <th>Width</th>
+                                <th>Class Prefix</th>
+                                <th>Description</th>
+                                <th>Icon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Extra small</strong></td>
+                                <td>&lt; 576px</td>
+                                <td><code>col-</code></td>
+                                <td>Default mobile devices</td>
+                                <td class="text-center">📱</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Small</strong></td>
+                                <td>≥ 576px</td>
+                                <td><code>col-sm-</code></td>
+                                <td>Landscape phones</td>
+                                <td class="text-center">📱↔️</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Medium</strong></td>
+                                <td>≥ 768px</td>
+                                <td><code>col-md-</code></td>
+                                <td>Tablets</td>
+                                <td class="text-center">📱</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Large</strong></td>
+                                <td>≥ 992px</td>
+                                <td><code>col-lg-</code></td>
+                                <td>Desktops</td>
+                                <td class="text-center">💻</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Extra large</strong></td>
+                                <td>≥ 1200px</td>
+                                <td><code>col-xl-</code></td>
+                                <td>Large desktops</td>
+                                <td class="text-center">🖥️</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="alert alert-warning mt-4">
+                    <h5>⚡ Mobile-First Approach:</h5>
+                    <p class="mb-0">Bootstrap uses <strong>mobile-first design</strong>. Start with mobile layout (<code>col-</code>) and add larger screen layouts. Larger screens inherit smaller screen behavior.</p>
+                </div>
+            </div>
+            
+            <!-- Combined Class Names -->
+            <div class="example-section">
+                <h2 class="mb-4">3. Combined Class Names</h2>
+                
+                <p>You can combine multiple responsive classes for different breakpoints:</p>
+                
+                <div class="code-block">
+&lt;!-- Example: Mobile full-width, Tablet 6 columns, Desktop 4 columns --&gt;
+&lt;div class="col-12 col-md-6 col-lg-4"&gt;
+    Content that changes width on different devices
+&lt;/div&gt;
+                </div>
+                
+                <h4 class="mt-4">Practical Example:</h4>
+                <div class="code-block">
+&lt;div class="row"&gt;
+    &lt;!-- Mobile: Full width, Tablet: 2 columns, Desktop: 4 columns --&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        &lt;h3&gt;Taj Mahal&lt;/h3&gt;
+        &lt;p&gt;Description...&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        &lt;h3&gt;Mysore Palace&lt;/h3&gt;
+        &lt;p&gt;Description...&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        &lt;h3&gt;Golden Temple&lt;/h3&gt;
+        &lt;p&gt;Description...&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        &lt;h3&gt;Varanasi&lt;/h3&gt;
+        &lt;p&gt;Description...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+                
+                <div class="responsive-demo mt-4">
+                    <h5>Live Responsive Demo:</h5>
+                    <p><em>Resize your browser to see the changes!</em></p>
+                    
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                            <div class="demo-item" style="background-color: var(--primary); color: white;">
+                                <strong>Mobile:</strong> col-12 (Full width)<br>
+                                <strong>Tablet:</strong> col-sm-6 (Half width)<br>
+                                <strong>Desktop:</strong> col-lg-3 (Quarter width)
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                            <div class="demo-item" style="background-color: var(--secondary); color: white;">
+                                <strong>Mobile:</strong> col-12 (Full width)<br>
+                                <strong>Tablet:</strong> col-sm-6 (Half width)<br>
+                                <strong>Desktop:</strong> col-lg-3 (Quarter width)
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                            <div class="demo-item" style="background-color: var(--accent); color: white;">
+                                <strong>Mobile:</strong> col-12 (Full width)<br>
+                                <strong>Tablet:</strong> col-sm-6 (Half width)<br>
+                                <strong>Desktop:</strong> col-lg-3 (Quarter width)
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                            <div class="demo-item" style="background-color: var(--success); color: white;">
+                                <strong>Mobile:</strong> col-12 (Full width)<br>
+                                <strong>Tablet:</strong> col-sm-6 (Half width)<br>
+                                <strong>Desktop:</strong> col-lg-3 (Quarter width)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 class="mt-4">More Complex Examples:</h4>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="grid-demo">
+                            <h6>col-6 col-md-4 col-lg-3</h6>
+                            <div class="code-block">
+&lt;div class="col-6 col-md-4 col-lg-3"&gt;
+    Mobile: Half width (col-6)<br>
+    Tablet: One third (col-md-4)<br>
+    Desktop: Quarter (col-lg-3)
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="grid-demo">
+                            <h6>col-12 col-sm-8 col-md-6 col-lg-4</h6>
+                            <div class="code-block">
+&lt;div class="col-12 col-sm-8 col-md-6 col-lg-4"&gt;
+    Mobile: Full width<br>
+    Small: 8 columns<br>
+    Medium: 6 columns<br>
+    Large: 4 columns
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Inheritance Principle -->
+            <div class="example-section">
+                <h2 class="mb-4">4. Inheritance Principle</h2>
+                
+                <p>In Bootstrap's mobile-first approach, larger screens inherit smaller screen behavior unless overridden.</p>
+                
+                <div class="alert alert-success">
+                    <h5>📖 Rule of Inheritance:</h5>
+                    <p class="mb-0"><strong>If you define a behavior for a smaller screen, it applies to all larger screens unless you specify different behavior for those larger screens.</strong></p>
+                </div>
+                
+                <div class="code-block">
+&lt;!-- Example 1: Mobile behavior inherited --&gt;
+&lt;div class="col-12"&gt;
+    This is full width on ALL devices
+&lt;/div&gt;
+
+&lt;!-- Example 2: Mobile behavior overridden --&gt;
+&lt;div class="col-12 col-md-6"&gt;
+    Mobile: Full width (col-12)<br>
+    Tablet+: Half width (col-md-6 overrides for ≥768px)
+&lt;/div&gt;
+
+&lt;!-- Example 3: Multiple overrides --&gt;
+&lt;div class="col-12 col-sm-6 col-md-4 col-lg-3"&gt;
+    Mobile: Full width<br>
+    Small+: Half width<br>
+    Medium+: One third<br>
+    Large+: Quarter width
+&lt;/div&gt;
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">✅ Correct Inheritance</h5>
+                            </div>
+                            <div class="card-body">
+                                <code>&lt;div class="col-12 col-md-6"&gt;</code>
+                                <ul class="mt-2">
+                                    <li>Mobile (< 768px): Full width</li>
+                                    <li>Tablet+ (≥ 768px): Half width</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0">❌ Unnecessary Classes</h5>
+                            </div>
+                            <div class="card-body">
+                                <code>&lt;div class="col-12 col-sm-12 col-md-12 col-lg-12"&gt;</code>
+                                <p class="mt-2 mb-0">All these are redundant! Just use <code>col-12</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tourism Example -->
+            <div class="example-section">
+                <h2 class="mb-4">5. Complete Tourism Example</h2>
+                
+                <div class="code-block">
+&lt;div class="container"&gt;
+    &lt;!-- Header: Always full width --&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-12"&gt;
+            &lt;h1&gt;Explore India&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Main content: Responsive layout --&gt;
+    &lt;div class="row"&gt;
+        &lt;!-- Mobile: Full, Tablet: Half, Desktop: Two-thirds --&gt;
+        &lt;div class="col-12 col-md-8 col-lg-9"&gt;
+            &lt;div class="row"&gt;
+                &lt;!-- Nested: Mobile full, Tablet half, Desktop third --&gt;
+                &lt;div class="col-12 col-sm-6 col-lg-4"&gt;
+                    &lt;h3&gt;Taj Mahal&lt;/h3&gt;
+                    &lt;p&gt;Description...&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-12 col-sm-6 col-lg-4"&gt;
+                    &lt;h3&gt;Mysore Palace&lt;/h3&gt;
+                    &lt;p&gt;Description...&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-12 col-sm-6 col-lg-4"&gt;
+                    &lt;h3&gt;Golden Temple&lt;/h3&gt;
+                    &lt;p&gt;Description...&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Sidebar: Mobile full, Tablet half, Desktop third --&gt;
+        &lt;div class="col-12 col-md-4 col-lg-3"&gt;
+            &lt;h3&gt;Sidebar&lt;/h3&gt;
+            &lt;p&gt;Additional information...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </div>
+            
+            <!-- Quiz Section -->
+            <div class="quiz-section">
+                <h3>📝 Quick Quiz</h3>
+                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 1: What happens when columns exceed 12 in a row?</h5>
+                        <div class="alert alert-success mt-2">
+                            <strong>Answer:</strong> Extra columns wrap to a new line
+                            <p class="mb-0 mt-2">The grid system automatically moves exceeding columns to the next row.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 2: What's the class prefix for tablets (≥768px)?</h5>
+                        <div class="alert alert-success mt-2">
+                            <strong>Answer:</strong> col-md-
+                            <p class="mb-0 mt-2">md stands for medium devices (tablets).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 3: Does Bootstrap use mobile-first or desktop-first approach?</h5>
+                        <div class="alert alert-success mt-2">
+                            <strong>Answer:</strong> Mobile-first approach
+                            <p class="mb-0 mt-2">Design for mobile first, then enhance for larger screens.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 4: What will this column do: &lt;div class="col-6 col-md-4"&gt;?</h5>
+                        <div class="alert alert-success mt-2">
+                            <strong>Answer:</strong> Mobile: 6 columns, Tablet+: 4 columns
+                            <p class="mb-0 mt-2">It takes half width on mobile and one-third width on tablets and larger.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

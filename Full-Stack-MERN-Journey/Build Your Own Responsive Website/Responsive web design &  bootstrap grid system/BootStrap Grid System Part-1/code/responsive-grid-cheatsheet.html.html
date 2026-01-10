@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid Cheatsheet - Bootstrap</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .cheatsheet-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .card-cheatsheet {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .card-cheatsheet:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+            font-weight: 600;
+        }
+        
+        .breakpoint-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .breakpoint-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .example-grid {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .example-col {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: 2px solid white;
+        }
+        
+        .example-col.secondary {
+            background-color: var(--secondary);
+        }
+        
+        .example-col.accent {
+            background-color: var(--accent);
+        }
+        
+        .code-snippet {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .responsive-table th, .responsive-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .responsive-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .responsive-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .visual-guide {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .device {
+            text-align: center;
+        }
+        
+        .device-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .visual-guide {
+                flex-wrap: wrap;
+            }
+            
+            .device {
+                width: 50%;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cheatsheet-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cheatsheet-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>📱 Bootstrap Grid Cheatsheet</h1>
+            <p class="lead">Advanced Responsive Grid Concepts</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            
+            <!-- Breakpoints Section -->
+            <section class="mb-5">
+                <h2 class="section-title">Responsive Breakpoints</h2>
+                
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg mb-3">
+                        <div class="breakpoint-card">
+                            <div class="breakpoint-icon">📱</div>
+                            <h5>Extra Small</h5>
+                            <p><strong>&lt; 576px</strong></p>
+                            <code>col-</code>
+                            <p class="mt-2 mb-0"><small>Mobile phones</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 col-md-4 col-lg mb-3">
+                        <div class="breakpoint-card">
+                            <div class="breakpoint-icon">📱↔️</div>
+                            <h5>Small</h5>
+                            <p><strong>≥ 576px</strong></p>
+                            <code>col-sm-</code>
+                            <p class="mt-2 mb-0"><small>Landscape phones</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 col-md-4 col-lg mb-3">
+                        <div class="breakpoint-card">
+                            <div class="breakpoint-icon">📱</div>
+                            <h5>Medium</h5>
+                            <p><strong>≥ 768px</strong></p>
+                            <code>col-md-</code>
+                            <p class="mt-2 mb-0"><small>Tablets</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 col-md-4 col-lg mb-3">
+                        <div class="breakpoint-card">
+                            <div class="breakpoint-icon">💻</div>
+                            <h5>Large</h5>
+                            <p><strong>≥ 992px</strong></p>
+                            <code>col-lg-</code>
+                            <p class="mt-2 mb-0"><small>Desktops</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 col-md-4 col-lg mb-3">
+                        <div class="breakpoint-card">
+                            <div class="breakpoint-icon">🖥️</div>
+                            <h5>Extra Large</h5>
+                            <p><strong>≥ 1200px</strong></p>
+                            <code>col-xl-</code>
+                            <p class="mt-2 mb-0"><small>Large desktops</small></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Column Wrapping -->
+            <section class="mb-5">
+                <h2 class="section-title">Column Wrapping Examples</h2>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-cheatsheet">
+                            <div class="card-header">
+                                4 columns of col-6
+                            </div>
+                            <div class="card-body">
+                                <div class="example-grid">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="example-col">col-6</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="example-col secondary">col-6</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="example-col accent">col-6</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="example-col">col-6</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="code-snippet mt-2">
+&lt;div class="row"&gt;
+    &lt;div class="col-6"&gt;...&lt;/div&gt;
+    &lt;div class="col-6"&gt;...&lt;/div&gt;
+    &lt;div class="col-6"&gt;...&lt;/div&gt; &lt;!-- Wraps --&gt;
+    &lt;div class="col-6"&gt;...&lt;/div&gt; &lt;!-- Wraps --&gt;
+&lt;/div&gt;
+                                </div>
+                                <p class="mt-2 mb-0"><strong>Math:</strong> 6 + 6 + 6 + 6 = 24 → Wraps after 12</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-cheatsheet">
+                            <div class="card-header">
+                                Mixed columns
+                            </div>
+                            <div class="card-body">
+                                <div class="example-grid">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="example-col">col-4</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="example-col secondary">col-4</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="example-col accent">col-6</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="example-col">col-6</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="code-snippet mt-2">
+&lt;div class="row"&gt;
+    &lt;div class="col-4"&gt;...&lt;/div&gt;
+    &lt;div class="col-4"&gt;...&lt;/div&gt;
+    &lt;div class="col-6"&gt;...&lt;/div&gt; &lt;!-- Wraps --&gt;
+    &lt;div class="col-6"&gt;...&lt;/div&gt; &lt;!-- Wraps --&gt;
+&lt;/div&gt;
+                                </div>
+                                <p class="mt-2 mb-0"><strong>Math:</strong> 4 + 4 + 6 + 6 = 20 → Wraps after 12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Combined Classes -->
+            <section class="mb-5">
+                <h2 class="section-title">Combined Class Examples</h2>
+                
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Class Combination</th>
+                            <th>Mobile</th>
+                            <th>Tablet</th>
+                            <th>Desktop</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>col-12 col-md-6</code></td>
+                            <td>Full width</td>
+                            <td>Half width</td>
+                            <td>Half width</td>
+                            <td>Simple responsive</td>
+                        </tr>
+                        <tr>
+                            <td><code>col-12 col-sm-6 col-lg-4</code></td>
+                            <td>Full width</td>
+                            <td>Half width</td>
+                            <td>One third</td>
+                            <td>Gallery items</td>
+                        </tr>
+                        <tr>
+                            <td><code>col-12 col-md-8 col-lg-9</code></td>
+                            <td>Full width</td>
+                            <td>Two thirds</td>
+                            <td>Three quarters</td>
+                            <td>Main content</td>
+                        </tr>
+                        <tr>
+                            <td><code>col-12 col-md-4 col-lg-3</code></td>
+                            <td>Full width</td>
+                            <td>One third</td>
+                            <td>Quarter</td>
+                            <td>Sidebar</td>
+                        </tr>
+                        <tr>
+                            <td><code>col-6 col-md-4 col-lg-2</code></td>
+                            <td>Half width</td>
+                            <td>One third</td>
+                            <td>One sixth</td>
+                            <td>Navigation items</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Mobile First Principle -->
+            <section class="mb-5">
+                <h2 class="section-title">Mobile-First Principle</h2>
+                
+                <div class="card card-cheatsheet">
+                    <div class="card-header">
+                        How Mobile-First Works
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>✅ Correct (Mobile-First)</h5>
+                                <div class="code-snippet">
+&lt;!-- Start with mobile --&gt;
+&lt;div class="col-12 col-md-6 col-lg-4"&gt;
+    Content
+&lt;/div&gt;
+
+&lt;!-- Inheritance: --&gt;
+Mobile (&lt;576px): col-12 (Full)
+Tablet (≥768px): col-md-6 (Half)
+Desktop (≥992px): col-lg-4 (Third)
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h5>❌ Incorrect (Redundant)</h5>
+                                <div class="code-snippet">
+&lt;!-- Unnecessary repetition --&gt;
+&lt;div class="col-12 col-sm-12 col-md-12 col-lg-12"&gt;
+    Content
+&lt;/div&gt;
+
+&lt;!-- Just use: --&gt;
+&lt;div class="col-12"&gt;
+    Content
+&lt;/div&gt;
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info mt-3">
+                            <h5>📌 Key Rule:</h5>
+                            <p class="mb-0"><strong>Define styles for mobile first. Larger screens inherit mobile styles unless overridden.</strong> This means you only need to specify what changes at larger breakpoints.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Common Patterns -->
+            <section class="mb-5">
+                <h2 class="section-title">Common Responsive Patterns</h2>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-cheatsheet h-100">
+                            <div class="card-header">
+                                Card Grid Pattern
+                            </div>
+                            <div class="card-body">
+                                <div class="code-snippet">
+&lt;div class="row"&gt;
+    &lt;!-- Mobile: 1 col, Tablet: 2 cols, Desktop: 4 cols --&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Card 1
+    &lt;/div&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Card 2
+    &lt;/div&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Card 3
+    &lt;/div&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Card 4
+    &lt;/div&gt;
+&lt;/div&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-cheatsheet h-100">
+                            <div class="card-header">
+                                Main + Sidebar Pattern
+                            </div>
+                            <div class="card-body">
+                                <div class="code-snippet">
+&lt;div class="row"&gt;
+    &lt;!-- Mobile: Full, Tablet+: 8/4 split --&gt;
+    &lt;div class="col-12 col-md-8 col-lg-9"&gt;
+        Main Content
+    &lt;/div&gt;
+    &lt;div class="col-12 col-md-4 col-lg-3"&gt;
+        Sidebar
+    &lt;/div&gt;
+&lt;/div&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-cheatsheet h-100">
+                            <div class="card-header">
+                                Navigation Pattern
+                            </div>
+                            <div class="card-body">
+                                <div class="code-snippet">
+&lt;div class="row"&gt;
+    &lt;!-- Logo --&gt;
+    &lt;div class="col-6 col-md-4"&gt;
+        Logo
+    &lt;/div&gt;
+    &lt;!-- Navigation --&gt;
+    &lt;div class="col-6 col-md-8"&gt;
+        Menu
+    &lt;/div&gt;
+&lt;/div&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card card-cheatsheet h-100">
+                            <div class="card-header">
+                                Footer Pattern
+                            </div>
+                            <div class="card-body">
+                                <div class="code-snippet">
+&lt;div class="row"&gt;
+    &lt;!-- Mobile: Full, Tablet: Half, Desktop: Quarter --&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Column 1
+    &lt;/div&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Column 2
+    &lt;/div&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Column 3
+    &lt;/div&gt;
+    &lt;div class="col-12 col-sm-6 col-lg-3"&gt;
+        Column 4
+    &lt;/div&gt;
+&lt;/div&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Quick Reference -->
+            <section>
+                <h2 class="section-title">Quick Reference Rules</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-cheatsheet">
+                            <div class="card-header">
+                                Do's ✅
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Start with mobile-first design</li>
+                                    <li>Use <code>col-</code> for mobile</li>
+                                    <li>Add <code>col-md-</code>, <code>col-lg-</code> for larger screens</li>
+                                    <li>Keep column total ≤ 12 per row</li>
+                                    <li>Let columns wrap naturally</li>
+                                    <li>Test on multiple devices</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card card-cheatsheet">
+                            <div class="card-header">
+                                Don'ts ❌
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Don't repeat same class for all breakpoints</li>
+                                    <li>Don't place content directly in rows</li>
+                                    <li>Don't forget container around rows</li>
+                                    <li>Don't ignore column wrapping</li>
+                                    <li>Don't use fixed pixel values in grid</li>
+                                    <li>Don't skip responsive testing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

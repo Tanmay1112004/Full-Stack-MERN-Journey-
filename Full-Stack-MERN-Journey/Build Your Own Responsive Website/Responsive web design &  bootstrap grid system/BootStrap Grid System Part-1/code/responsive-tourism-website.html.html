@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tourism Website - Bootstrap Grid</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #7209b7;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f8fafc;
+        }
+        
+        /* Navigation */
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .navbar-brand i {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9), rgba(58, 12, 163, 0.9)), 
+                        url('https://images.unsplash.com/photo-1527838832700-5059252407fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Destination Cards */
+        .destination-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .destination-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .destination-content {
+            padding: 20px;
+        }
+        
+        .destination-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .destination-description {
+            color: #6c757d;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        /* Responsive Grid Demo */
+        .grid-demo-item {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border: 2px solid white;
+        }
+        
+        .grid-demo-item.secondary {
+            background-color: var(--secondary);
+        }
+        
+        .grid-demo-item.accent {
+            background-color: var(--accent);
+        }
+        
+        /* Features */
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+        }
+        
+        /* Utility Classes */
+        .btn-explore {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-explore:hover {
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Device Size Indicators */
+        .device-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 575.98px) {
+            .device-indicator::after {
+                content: 'Extra Small (<576px)';
+            }
+        }
+        
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .device-indicator::after {
+                content: 'Small (≥576px)';
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .device-indicator::after {
+                content: 'Medium (≥768px)';
+            }
+        }
+        
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .device-indicator::after {
+                content: 'Large (≥992px)';
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .device-indicator::after {
+                content: 'Extra Large (≥1200px)';
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Device Size Indicator -->
+    <div class="device-indicator"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-map-marked-alt"></i> TravelGrid Pro
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#grid-demo">Grid Demo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Mobile: Full width, Desktop: 8 columns -->
+                <div class="col-12 col-lg-8">
+                    <h1 class="hero-title">Discover India's Wonders</h1>
+                    <p class="lead mb-4">Experience responsive design that adapts to every device using Bootstrap Grid System</p>
+                    <a href="#destinations" class="btn btn-light btn-lg">
+                        <i class="fas fa-compass"></i> Start Exploring
+                    </a>
+                </div>
+                <!-- Mobile: Hidden, Desktop: 4 columns -->
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="text-center">
+                        <i class="fas fa-globe-asia fa-6x text-white opacity-75"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            
+            <!-- Row 1: 2 cards on mobile, 4 cards on desktop -->
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="destination-card">
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/tajmahal-img.png" 
+                             alt="Taj Mahal" 
+                             class="destination-img">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Taj Mahal</h3>
+                            <p class="destination-description">
+                                The iconic ivory-white marble mausoleum in Agra, a UNESCO World Heritage Site.
+                            </p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="destination-card">
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/mysore-palace-img.png" 
+                             alt="Mysore Palace" 
+                             class="destination-img">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Mysore Palace</h3>
+                            <p class="destination-description">
+                                Historical palace and royal residence showcasing Indo-Saracenic architecture.
+                            </p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="destination-card">
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/golden-temple-img.png" 
+                             alt="Golden Temple" 
+                             class="destination-img">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Golden Temple</h3>
+                            <p class="destination-description">
+                                The holiest Gurdwara of Sikhism, located in Amritsar, Punjab.
+                            </p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="destination-card">
+                        <img src="https://d2clawv67efefq.cloudfront.net/ccbp-static-website/varanasi-temple-img.png" 
+                             alt="Varanasi" 
+                             class="destination-img">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Varanasi</h3>
+                            <p class="destination-description">
+                                Spiritual capital of India on the banks of the Ganges River.
+                            </p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row 2: 1 card on mobile, 2 cards on tablet, 3 cards on desktop -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Goa Beaches" 
+                             class="destination-img">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Goa Beaches</h3>
+                            <p class="destination-description">
+                                Beautiful beaches, Portuguese architecture, and vibrant nightlife.
+                            </p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1524307875964-4c93d5c97229?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Kerala Backwaters" 
+                             class="destination-img">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Kerala</h3>
+                            <p class="destination-description">
+                                Serene backwaters, lush greenery, and traditional houseboats.
+                            </p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-12 col-lg-4 mb-4">
+                    <div class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Rajasthan Forts" 
+                             class="destination-img">
+                        <div class="destination-content">
+                            <h3 class="destination-title">Rajasthan</h3>
+                            <p class="destination-description">
+                                Majestic forts, palaces, and the Thar Desert experience.
+                            </p>
+                            <a href="#" class="btn-explore">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Responsive Features</h2>
+            
+            <div class="row">
+                <!-- Mobile: Full width, Tablet: Half width, Desktop: Quarter width -->
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Mobile First</h4>
+                        <p>Designed for mobile devices first, then scaled up for larger screens</p>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-columns"></i>
+                        </div>
+                        <h4 class="feature-title">12-Column Grid</h4>
+                        <p>Flexible 12-column system for creating responsive layouts</p>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Column Wrapping</h4>
+                        <p>Automatic column wrapping when exceeding 12 columns per row</p>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h4 class="feature-title">5 Breakpoints</h4>
+                        <p>xs, sm, md, lg, xl breakpoints for precise control</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Grid System Demo -->
+    <section id="grid-demo" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Grid System in Action</h2>
+            <p class="mb-4"><em>Resize your browser to see how the grid changes!</em></p>
+            
+            <!-- Demo 1: Column Wrapping -->
+            <h4 class="mt-5 mb-3">1. Column Wrapping Example</h4>
+            <div class="row mb-4">
+                <div class="col-6">
+                    <div class="grid-demo-item">col-6</div>
+                </div>
+                <div class="col-6">
+                    <div class="grid-demo-item secondary">col-6</div>
+                </div>
+                <div class="col-6">
+                    <div class="grid-demo-item accent">col-6 (Wraps)</div>
+                </div>
+                <div class="col-6">
+                    <div class="grid-demo-item">col-6 (Wraps)</div>
+                </div>
+            </div>
+            
+            <!-- Demo 2: Responsive Classes -->
+            <h4 class="mt-5 mb-3">2. Responsive Class Combination</h4>
+            <div class="row mb-4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="grid-demo-item">
+                        <small>Mobile: col-12</small><br>
+                        <small>Tablet: col-sm-6</small><br>
+                        <small>Desktop: col-md-4</small><br>
+                        <small>Large: col-lg-3</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="grid-demo-item secondary">
+                        <small>Mobile: col-12</small><br>
+                        <small>Tablet: col-sm-6</small><br>
+                        <small>Desktop: col-md-4</small><br>
+                        <small>Large: col-lg-3</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="grid-demo-item accent">
+                        <small>Mobile: col-12</small><br>
+                        <small>Tablet: col-sm-6</small><br>
+                        <small>Desktop: col-md-4</small><br>
+                        <small>Large: col-lg-3</small>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-12 col-lg-3">
+                    <div class="grid-demo-item">
+                        <small>Mobile: col-12</small><br>
+                        <small>Tablet: col-sm-6</small><br>
+                        <small>Desktop: col-md-12</small><br>
+                        <small>Large: col-lg-3</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Demo 3: Mixed Layout -->
+            <h4 class="mt-5 mb-3">3. Mixed Layout (Main + Sidebar)</h4>
+            <div class="row mb-4">
+                <div class="col-12 col-md-8">
+                    <div class="grid-demo-item">
+                        <h5>Main Content</h5>
+                        <p class="mb-0">col-12 col-md-8</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="grid-demo-item secondary">
+                        <h5>Sidebar</h5>
+                        <p class="mb-0">col-12 col-md-4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <h4 class="footer-title">TravelGrid Pro</h4>
+                    <p>Built with Bootstrap Grid System for perfect responsiveness across all devices.</p>
+                </div>
+                
+                <div class="col-12 col-md-4 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-home mr-2"></i> Home</a>
+                        <a href="#destinations"><i class="fas fa-map-marker-alt mr-2"></i> Destinations</a>
+                        <a href="#features"><i class="fas fa-star mr-2"></i> Features</a>
+                        <a href="#grid-demo"><i class="fas fa-th mr-2"></i> Grid Demo</a>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-4 mb-4">
+                    <h4 class="footer-title">Grid Classes Used</h4>
+                    <div class="footer-links">
+                        <code class="text-white d-block mb-1">col-12</code>
+                        <code class="text-white d-block mb-1">col-sm-6</code>
+                        <code class="text-white d-block mb-1">col-md-4</code>
+                        <code class="text-white d-block mb-1">col-lg-3</code>
+                        <code class="text-white d-block">col-xl-2</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright">
+                        <p>&copy; 2024 TravelGrid Pro. All rights reserved. | Built with Bootstrap 4 Grid System | Class 14: Advanced Grid Concepts</p>
+                        <p class="mb-0"><small>Try resizing your browser to see the responsive grid in action!</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
