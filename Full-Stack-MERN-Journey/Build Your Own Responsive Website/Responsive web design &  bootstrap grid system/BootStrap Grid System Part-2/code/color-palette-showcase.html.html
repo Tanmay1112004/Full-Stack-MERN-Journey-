@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Color Palette Showcase</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #007bff;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        /* Navigation */
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), #0056b3);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 50px;
+        }
+        
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        /* Color Cards */
+        .color-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .color-header {
+            padding: 25px 20px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .color-details {
+            background-color: white;
+            padding: 20px;
+        }
+        
+        .hex-code {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            padding: 5px 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        /* Spacing Demo */
+        .spacing-demo-box {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+        }
+        
+        .demo-item {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        /* Usage Examples */
+        .usage-example {
+            border-left: 4px solid var(--primary);
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-palette"></i> Color Palette
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#colors">Colors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#spacing">Spacing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#usage">Usage</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">Bootstrap Color & Spacing Utilities</h1>
+                    <p class="lead mb-4">Complete guide to Bootstrap's built-in colors and spacing system with responsive grid examples.</p>
+                    <a href="#colors" class="btn btn-light btn-lg">
+                        <i class="fas fa-arrow-down"></i> Explore Colors
+                    </a>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block text-center">
+                    <i class="fas fa-fill-drip fa-6x text-white opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Colors Section -->
+    <section id="colors" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Bootstrap Color Palette</h2>
+            
+            <!-- Row 1: Primary Colors -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-primary text-white">
+                            Primary
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#007bff</div>
+                            <p class="mb-2"><strong>Use:</strong> Primary actions, buttons, links</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-primary</code>, <code>text-primary</code></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-secondary text-white">
+                            Secondary
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#6c757d</div>
+                            <p class="mb-2"><strong>Use:</strong> Secondary content, less important items</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-secondary</code>, <code>text-secondary</code></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-success text-white">
+                            Success
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#28a745</div>
+                            <p class="mb-2"><strong>Use:</strong> Success messages, positive actions</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-success</code>, <code>text-success</code></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-danger text-white">
+                            Danger
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#dc3545</div>
+                            <p class="mb-2"><strong>Use:</strong> Error messages, destructive actions</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-danger</code>, <code>text-danger</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Row 2: Additional Colors -->
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-warning text-dark">
+                            Warning
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#ffc107</div>
+                            <p class="mb-2"><strong>Use:</strong> Warning messages, cautions</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-warning</code>, <code>text-warning</code></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-info text-white">
+                            Info
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#17a2b8</div>
+                            <p class="mb-2"><strong>Use:</strong> Information messages, neutral content</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-info</code>, <code>text-info</code></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-light text-dark">
+                            Light
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#f8f9fa</div>
+                            <p class="mb-2"><strong>Use:</strong> Light backgrounds, subtle elements</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-light</code>, <code>text-light</code></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                    <div class="color-card">
+                        <div class="color-header bg-dark text-white">
+                            Dark
+                        </div>
+                        <div class="color-details">
+                            <div class="hex-code">#343a40</div>
+                            <p class="mb-2"><strong>Use:</strong> Dark backgrounds, footer, headers</p>
+                            <p class="mb-0"><strong>Class:</strong> <code>bg-dark</code>, <code>text-dark</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Spacing Utilities -->
+    <section id="spacing" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Spacing Utilities</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">Margin Utilities</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>Size Scale:</h6>
+                            <ul class="mb-4">
+                                <li><code>0</code> = 0px</li>
+                                <li><code>1</code> = 4px (0.25rem)</li>
+                                <li><code>2</code> = 8px (0.5rem)</li>
+                                <li><code>3</code> = 16px (1rem)</li>
+                                <li><code>4</code> = 24px (1.5rem)</li>
+                                <li><code>5</code> = 48px (3rem)</li>
+                            </ul>
+                            
+                            <h6>Examples:</h6>
+                            <div class="spacing-demo-box">
+                                <div class="demo-item mb-1 p-2">mb-1 (4px bottom margin)</div>
+                                <div class="demo-item mb-2 p-2">mb-2 (8px bottom margin)</div>
+                                <div class="demo-item mb-3 p-2">mb-3 (16px bottom margin)</div>
+                                <div class="demo-item mb-4 p-2">mb-4 (24px bottom margin)</div>
+                                <div class="demo-item mb-5 p-2">mb-5 (48px bottom margin)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">Padding Utilities</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>Same Size Scale:</h6>
+                            <ul class="mb-4">
+                                <li><code>0</code> = 0px</li>
+                                <li><code>1</code> = 4px (0.25rem)</li>
+                                <li><code>2</code> = 8px (0.5rem)</li>
+                                <li><code>3</code> = 16px (1rem)</li>
+                                <li><code>4</code> = 24px (1.5rem)</li>
+                                <li><code>5</code> = 48px (3rem)</li>
+                            </ul>
+                            
+                            <h6>Examples:</h6>
+                            <div class="spacing-demo-box">
+                                <div class="demo-item p-1 mb-2" style="background-color: var(--success);">p-1 (4px padding)</div>
+                                <div class="demo-item p-2 mb-2" style="background-color: var(--success);">p-2 (8px padding)</div>
+                                <div class="demo-item p-3 mb-2" style="background-color: var(--success);">p-3 (16px padding)</div>
+                                <div class="demo-item p-4 mb-2" style="background-color: var(--success);">p-4 (24px padding)</div>
+                                <div class="demo-item p-5" style="background-color: var(--success);">p-5 (48px padding)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Responsive Spacing -->
+            <div class="card mt-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Responsive Spacing</h5>
+                </div>
+                <div class="card-body">
+                    <p>Spacing utilities can be combined with responsive breakpoints:</p>
+                    <div class="code-block mb-3">
+&lt;!-- Different spacing on different screens --&gt;
+&lt;div class="p-2 p-md-3 p-lg-4"&gt;
+    Content with responsive padding
+&lt;/div&gt;
+
+&lt;!-- Mobile: mb-3, Desktop: mb-4 --&gt;
+&lt;div class="mb-3 mb-md-4"&gt;
+    Responsive margin bottom
+&lt;/div&gt;
+
+&lt;!-- Mobile: p-2, Tablet: p-3, Desktop: p-4 --&gt;
+&lt;div class="p-2 p-sm-3 p-md-4"&gt;
+    Progressive padding
+&lt;/div&gt;
+                    </div>
+                    
+                    <div class="spacing-demo-box">
+                        <div class="demo-item p-2 p-md-3 p-lg-4 mb-3" style="background-color: var(--info);">
+                            p-2 p-md-3 p-lg-4 (Responsive padding)
+                        </div>
+                        <div class="demo-item mb-3 mb-md-4 mb-lg-5 p-2" style="background-color: var(--info);">
+                            mb-3 mb-md-4 mb-lg-5 (Responsive margin)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Usage Examples -->
+    <section id="usage" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Practical Usage Examples</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="usage-example">
+                        <h5>Card Component</h5>
+                        <div class="code-block">
+&lt;div class="card"&gt;
+    &lt;div class="card-header bg-primary text-white p-3"&gt;
+        &lt;h5 class="mb-0"&gt;Card Title&lt;/h5&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body p-4"&gt;
+        &lt;p class="card-text mb-3"&gt;Card content here&lt;/p&gt;
+        &lt;button class="btn btn-primary px-4 py-2"&gt;
+            Action Button
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="usage-example">
+                        <h5>Alert Messages</h5>
+                        <div class="code-block">
+&lt;!-- Success Alert --&gt;
+&lt;div class="alert alert-success p-3 mb-3"&gt;
+    &lt;strong&gt;Success!&lt;/strong&gt; Operation completed.
+&lt;/div&gt;
+
+&lt;!-- Warning Alert --&gt;
+&lt;div class="alert alert-warning p-3 mb-3"&gt;
+    &lt;strong&gt;Warning!&lt;/strong&gt; Please check your input.
+&lt;/div&gt;
+
+&lt;!-- Danger Alert --&gt;
+&lt;div class="alert alert-danger p-3"&gt;
+    &lt;strong&gt;Error!&lt;/strong&gt; Something went wrong.
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="usage-example">
+                        <h5>Navigation Bar</h5>
+                        <div class="code-block">
+&lt;nav class="navbar navbar-expand-lg navbar-light bg-white py-3"&gt;
+    &lt;div class="container"&gt;
+        &lt;a class="navbar-brand mr-4" href="#"&gt;
+            Logo
+        &lt;/a&gt;
+        &lt;div class="collapse navbar-collapse"&gt;
+            &lt;ul class="navbar-nav ml-auto"&gt;
+                &lt;li class="nav-item mx-2"&gt;
+                    &lt;a class="nav-link" href="#"&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item mx-2"&gt;
+                    &lt;a class="nav-link" href="#"&gt;About&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="usage-example">
+                        <h5>Color Palette Grid</h5>
+                        <div class="code-block">
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-12 col-md-6 col-lg-4 mb-3"&gt;
+            &lt;div class="bg-primary p-4 text-white"&gt;
+                Primary Color
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-12 col-md-6 col-lg-4 mb-3"&gt;
+            &lt;div class="bg-secondary p-4 text-white"&gt;
+                Secondary Color
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-12 col-md-6 col-lg-4 mb-3"&gt;
+            &lt;div class="bg-success p-4 text-white"&gt;
+                Success Color
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4>Bootstrap Utilities</h4>
+                    <p>Master Bootstrap's spacing and color utilities for professional web development.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Key Utilities</h5>
+                    <ul class="list-unstyled">
+                        <li><code>m-*</code> - Margin</li>
+                        <li><code>p-*</code> - Padding</li>
+                        <li><code>bg-*</code> - Background</li>
+                        <li><code>text-*</code> - Text color</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5>Remember</h5>
+                    <p><strong>Never use CSS margins on grid columns!</strong> Use Bootstrap's spacing utilities instead.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 pt-4 border-top">
+                <p>&copy; 2024 Bootstrap Utilities Guide. Class 15: Grid System Part 2</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>

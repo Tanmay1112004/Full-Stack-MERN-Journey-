@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Color Grid - Bootstrap</title>
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary: #007bff;
+            --secondary: #6c757d;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .device-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 575.98px) {
+            .device-indicator::after {
+                content: 'Extra Small (<576px)';
+                color: #dc3545;
+            }
+        }
+        
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .device-indicator::after {
+                content: 'Small (≥576px)';
+                color: #fd7e14;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .device-indicator::after {
+                content: 'Medium (≥768px)';
+                color: #ffc107;
+            }
+        }
+        
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .device-indicator::after {
+                content: 'Large (≥992px)';
+                color: #28a745;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .device-indicator::after {
+                content: 'Extra Large (≥1200px)';
+                color: #007bff;
+            }
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), #0056b3);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .color-grid-item {
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .color-grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        
+        .color-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .color-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .grid-layout {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 30px 0;
+        }
+        
+        .layout-demo {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .layout-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .spacing-visual {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Device Indicator -->
+    <div class="device-indicator"></div>
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="text-center mb-3">Responsive Color Grid System</h1>
+            <p class="text-center lead mb-0">Bootstrap Grid + Colors + Spacing Utilities in Action</p>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container py-5">
+        
+        <!-- Section 1: Color Palette Grid -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4">Responsive Color Palette</h2>
+            <p class="text-center mb-4">Resize your browser to see the grid change at different breakpoints</p>
+            
+            <div class="row">
+                <!-- Each color item uses responsive grid classes -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3">
+                    <div class="color-grid-item bg-primary text-white">
+                        <div class="color-name">Primary</div>
+                        <div class="color-code">#007bff</div>
+                        <div class="mt-2 small">col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2</div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3">
+                    <div class="color-grid-item bg-secondary text-white">
+                        <div class="color-name">Secondary</div>
+                        <div class="color-code">#6c757d</div>
+                        <div class="mt-2 small">col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2</div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3">
+                    <div class="color-grid-item bg-success text-white">
+                        <div class="color-name">Success</div>
+                        <div class="color-code">#28a745</div>
+                        <div class="mt-2 small">col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2</div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3">
+                    <div class="color-grid-item bg-danger text-white">
+                        <div class="color-name">Danger</div>
+                        <div class="color-code">#dc3545</div>
+                        <div class="mt-2 small">col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2</div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3">
+                    <div class="color-grid-item bg-warning text-dark">
+                        <div class="color-name">Warning</div>
+                        <div class="color-code">#ffc107</div>
+                        <div class="mt-2 small">col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2</div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3">
+                    <div class="color-grid-item bg-info text-white">
+                        <div class="color-name">Info</div>
+                        <div class="color-code">#17a2b8</div>
+                        <div class="mt-2 small">col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2: Grid Layout Examples -->
+        <section class="mb-5">
+            <h2 class="layout-title">Grid Layout Examples with Spacing</h2>
+            
+            <div class="grid-layout">
+                <h4>Example 1: Card Layout with mb-3</h4>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                        <div class="layout-demo bg-primary text-white p-3">
+                            <h5>Card 1</h5>
+                            <p class="mb-0">With mb-3 spacing</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                        <div class="layout-demo bg-success text-white p-3">
+                            <h5>Card 2</h5>
+                            <p class="mb-0">With mb-3 spacing</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                        <div class="layout-demo bg-info text-white p-3">
+                            <h5>Card 3</h5>
+                            <p class="mb-0">With mb-3 spacing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid-layout">
+                <h4>Example 2: Different Spacing Sizes</h4>
+                <div class="row">
+                    <div class="col-12 col-md-4 mb-1">
+                        <div class="spacing-visual p-2">mb-1 (4px)</div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-2">
+                        <div class="spacing-visual p-2">mb-2 (8px)</div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-3">
+                        <div class="spacing-visual p-2">mb-3 (16px)</div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <div class="spacing-visual p-2">mb-4 (24px)</div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-5">
+                        <div class="spacing-visual p-2">mb-5 (48px)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Responsive Spacing -->
+        <section class="mb-5">
+            <h2 class="layout-title">Responsive Spacing Utilities</h2>
+            
+            <div class="grid-layout">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-2 p-md-3 p-lg-4 bg-primary text-white mb-3">
+                            <h5>p-2 p-md-3 p-lg-4</h5>
+                            <p class="mb-0">Padding increases on larger screens</p>
+                        </div>
+                        
+                        <div class="mb-3 mb-md-4 mb-lg-5 p-3 bg-success text-white">
+                            <h5>mb-3 mb-md-4 mb-lg-5</h5>
+                            <p class="mb-0">Margin bottom increases on larger screens</p>
+                        </div>
+                        
+                        <div class="p-2 p-sm-3 p-md-4 bg-info text-white">
+                            <h5>p-2 p-sm-3 p-md-4</h5>
+                            <p class="mb-0">Progressive padding across breakpoints</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 4: Code Examples -->
+        <section>
+            <h2 class="layout-title">Code Implementation</h2>
+            
+            <div class="grid-layout">
+                <h4>Complete Example Code:</h4>
+                <pre style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; overflow-x: auto;">
+&lt;!-- Bootstrap Grid with Colors and Spacing --&gt;
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;!-- Responsive columns --&gt;
+        &lt;div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3"&gt;
+            &lt;div class="bg-primary p-3 text-white"&gt;
+                &lt;h5&gt;Primary&lt;/h5&gt;
+                &lt;p&gt;#007bff&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-3"&gt;
+            &lt;div class="bg-secondary p-3 text-white"&gt;
+                &lt;h5&gt;Secondary&lt;/h5&gt;
+                &lt;p&gt;#6c757d&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- More colors... --&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Cards with spacing --&gt;
+    &lt;div class="row mt-4"&gt;
+        &lt;div class="col-12 col-md-6 col-lg-4 mb-3"&gt;
+            &lt;div class="card p-3"&gt;
+                &lt;h5&gt;Card Title&lt;/h5&gt;
+                &lt;p&gt;Card content&lt;/p&gt;
+                &lt;button class="btn btn-primary px-4"&gt;
+                    Action
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+            </div>
+        </section>
+        
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Bootstrap Grid System Part 2</h4>
+                    <p>Mastering spacing utilities, background colors, and responsive layouts.</p>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <h5>Key Takeaways:</h5>
+                    <ul class="list-unstyled">
+                        <li>Use <code>m-*</code> and <code>p-*</code> for spacing</li>
+                        <li>Never use CSS margins on grid columns</li>
+                        <li>Combine with responsive breakpoints</li>
+                        <li>Use <code>bg-*</code> classes for backgrounds</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-4 border-top">
+                <p class="mb-0">&copy; 2024 Class 15: Bootstrap Grid System Part 2</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
